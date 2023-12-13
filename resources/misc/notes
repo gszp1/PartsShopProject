@@ -1,0 +1,8 @@
+crosscripting: atak polega na wstrzyknięciu do przeglądarki ofiary
+ fragmentu javascript bądź innego języka skryptowego (np. VBScript), który może być uruchomiony w przeglądarce.
+ When a user fills out the form and click the Register button, you need to:
+
+ Sanitize & validate the user inputs.
+ If the form data is not valid, show the form with the user inputs and error messages.
+ If the form data is valid, insert the new user into the users database table, set a flash message, redirect the user to the login.
+ php page and display the flash message. Note that you’ll learn how to build a login form in the next tutorial.
