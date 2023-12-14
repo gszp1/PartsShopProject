@@ -3,7 +3,6 @@
     $username = "";
     $email = "";
     $errors = array();
-
     // establish database connection
     $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
 

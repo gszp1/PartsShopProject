@@ -1,4 +1,6 @@
-<?php include ("server.php"); ?>
+<?php
+    include ("server.php");
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,11 +24,13 @@
                 <input class="formInputCAP" type="password" id="password" name="password"><br>
                 <label>Confirm password:</label><br>
                 <input class="formInputCAP" type="password" id="passwordConfirm" name="passwordConfirmation"><br>
+                <div id="buttonsContainerCAP">
+                    <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
+                </div>
             </form>
-            <div id="buttonsContainerCAP">
-                <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
-            </div>
         </div>
-        <?php include('errors.php'); ?>
+        <?php 
+            include('errors.php');
+        ?>
     </body>
 </html>
