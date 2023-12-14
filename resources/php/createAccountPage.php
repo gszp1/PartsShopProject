@@ -13,14 +13,16 @@
             </div>
             <form class="formCAP" action="createAccountPage.php" method="post">
                 <label for="name">Username:</label><br>
-                <input class="formInputCAP" type="text" id="uname" name="userName"><br>
+                <input class="formInputCAP" type="text" id="uname" name="username"><br>
                 <label for="userEmail">E-mail:</label><br>
                 <input class="formInputCAP" type="text" id="email" name="userEmail"><br>
                 <label for="password">Password:</label><br>
-                <input class="formInputCAP" type="text" id="password" name="userPassword"><br>
+                <input class="formInputCAP" type="password" id="password" name="password"><br>
+                <label for="confirm password">Password:</label><br>
+                <input class="formInputCAP" type="password" id="passwordConfirm" name="passwordConfirmation"><br>
             </form>
             <div id="buttonsContainerCAP">
-                <button id="createAccountButtonCAP">Create account</button>
+                <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
             </div>
         </div>
     </body>
