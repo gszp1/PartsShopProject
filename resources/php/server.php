@@ -24,11 +24,12 @@
             array_push($errors,"Provided passwords don't match.");
         }
 
-        $getUserFromDBQuery = "SELECT * FROM customers WHERE username='$username' OR email='$email' LIMIT 1";
+        $getUserFromDBQuery = "SELECT * FROM customers WHERE Username='$username' OR Email='$email' LIMIT 1";
         $queryResult = mysqli_query($dbConnection, $getUserFromDBQuery);
         $user = mysqli_fetch_assoc($queryResult);
 
         if($user) {
+            echo"$user";
             if($user['Username'] === $username) {
                 array_push($errors, "Username already taken.");
             }
@@ -40,7 +41,7 @@
         if (count($errors) == 0) {
             $password_escp = md5($password);
             $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
-            $prepared_statement->bind_param("sss", $username, $email, $password_escp);
+            $prepared_statement->bind_param("sss", $email, $username, $password_escp);
             $prepared_statement->execute();
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
