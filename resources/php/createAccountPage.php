@@ -27,5 +27,6 @@
                 <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
             </div>
         </div>
+        <?php include('errors.php'); ?>
     </body>
 </html>
