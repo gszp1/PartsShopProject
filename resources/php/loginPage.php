@@ -24,7 +24,7 @@
             </div>
             <div id="buttonsBoxLP">
                 <button id="loginButtonLP">Login</button>
-                <button onclick="goToPage('createAccountPage.php')"id="registerButtonLP">Register</button>
+                <button onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
             </div>
         </div>
     </body>
