@@ -16,15 +16,19 @@
         $email = mysqli_real_escape_string($dbConnection, $_POST['userEmail']);
         $password = mysqli_real_escape_string($dbConnection, $_POST["password"]);
         $passwordConfirmation = mysqli_real_escape_string($dbConnection, $_POST["passwordConfirmation"]);
+        
         if (empty($username) || empty($email) || empty($password) || empty($passwordConfirmation)) {
             array_push($errors,"All field have to be filled.");
         }
+
         if ($password != $passwordConfirmation) {
             array_push($errors,"Provided passwords don't match.");
         }
+
         $getUserFromDBQuery = "SELECT * FROM customers WHERE username='$username' OR email='$email' LIMIT 1";
         $queryResult = mysqli_query($dbConnection, $getUserFromDBQuery);
         $user = mysqli_fetch_assoc($queryResult);
+
         if($user) {
             if($user['Username'] === $username) {
                 array_push($errors, "Username already taken.");
