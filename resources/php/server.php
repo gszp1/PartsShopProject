@@ -33,17 +33,15 @@
                 array_push($errors,"Email already used.");
             }
         }
-    }
-
-
-    // register user
-    if (count($errors) == 0) {
-        $password_escp = md5($password);
-        $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
-        $prepared_statement->bind_param("sss", $username, $email, $password_escp);
-        $prepared_statement->execute();
-        $_SESSION['username'] = $username;
-        $_SESSION['success'] = "You are now logged in";
-        header('location: /../index.php');
+            // register user
+        if (count($errors) == 0) {
+            $password_escp = md5($password);
+            $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
+            $prepared_statement->bind_param("sss", $username, $email, $password_escp);
+            $prepared_statement->execute();
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "You are now logged in";
+            header('location: /../index.php');
+        }
     }
 ?>
