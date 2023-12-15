@@ -38,7 +38,7 @@
                 array_push($errors, "Username already taken.");
             }
             if($user['Email'] === $email) {
-                array_push($errors,"Email already used.");
+                array_push($errors, "Email already used.");
             }
         }
             // register user
@@ -74,7 +74,7 @@
                 $_SESSION['email'] = $email;
                 $_SESSION['username'] = mysqli_fetch_assoc($results)['Username'];
                 $_SESSION['success'] = "You are now logged in";
-                $_SESSION["loginStatuss"] = true;
+                $_SESSION["loginStatus"] = true;
                 header("location: /../index.php");
                 exit();
             } else {
