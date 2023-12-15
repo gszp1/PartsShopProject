@@ -15,7 +15,7 @@
             <div id="greetingLP">
                 Login
             </div>
-            <form method="post" class="formLP" action="login.php">
+            <form method="post" class="formLP" action="loginPage.php">
                 <label for="userEmail">E-mail:</label><br>
                 <input class="formInputLP" type="text" id="userEmail" name=email><br>
                 <label for="userPassword">Password:</label><br>

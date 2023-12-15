@@ -58,8 +58,8 @@
         }
 
         if (count($errors) == 0) {
-            $password_escp = md5($password);
-            $query = "SELECT * FROM customers WHERE Email='$email' AND Password='$password'";
+            $password_hash = md5($password);
+            $query = "SELECT * FROM customers WHERE Email='$email' AND Password='$password_hash'";
             $results = mysqli_query($dbConnection, $query);
             
             if (mysqli_num_rows($results) == 1) {
