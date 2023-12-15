@@ -1,4 +1,5 @@
 <?php
+    include("functions.php");
     session_start();
     $username = "";
     $email = "";
@@ -18,10 +19,13 @@
         
         if (empty($username) || empty($email) || empty($password) || empty($passwordConfirmation)) {
             array_push($errors,"All field have to be filled.");
-        }
-
-        if ($password != $passwordConfirmation) {
-            array_push($errors,"Provided passwords don't match.");
+        } else {
+            if (validate_email($email) == false) {
+                array_push($errors, "Email format is incorrect");
+            }
+            if ($password != $passwordConfirmation) {
+                array_push($errors,"Provided passwords don't match.");
+            }    
         }
 
         $getUserFromDBQuery = "SELECT * FROM customers WHERE Username='$username' OR Email='$email' LIMIT 1";
@@ -55,6 +59,8 @@
         
         if (empty($email) || empty($password)) {
             array_push($errors, "All fields have to be filled.");
+        } elseif(validate_email($email) == false) {
+            array_push($errors, "Email format is incorrect");
         }
 
         if (count($errors) == 0) {
