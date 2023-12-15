@@ -6,3 +6,4 @@ crosscripting: atak polega na wstrzyknięciu do przeglądarki ofiary
  If the form data is not valid, show the form with the user inputs and error messages.
  If the form data is valid, insert the new user into the users database table, set a flash message, redirect the user to the login.
  php page and display the flash message. Note that you’ll learn how to build a login form in the next tutorial.
+ session_start() creates a session or resumes the current one based on a session identifier passed via a GET or POST request, or passed via a cookie. 
