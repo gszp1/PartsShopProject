@@ -48,4 +48,28 @@
             header('location: /../index.php');
         }
     }
+
+    if(isset($_POST['loginUser'])) {
+        $email = mysqli_real_escape_string($dbConnection, $_POST['email']);
+        $password = mysqli_real_escape_string($dbConnection, $_POST['password']);
+        
+        if (empty($email) || empty($password)) {
+            array_push($errors, "All fields have to be filled.");
+        }
+
+        if (count($errors) == 0) {
+            $password_hash = md5($password);
+            $query = "SELECT * FROM customers WHERE Email='$email' AND Password='$password_hash'";
+            $results = mysqli_query($dbConnection, $query);
+            
+            if (mysqli_num_rows($results) == 1) {
+                $_SESSION['email'] = $email;
+                $_SESSION['username'] = mysqli_fetch_assoc($results)['Username'];
+                $_SESSION['success'] = "You are now logged in";
+                header("location: /../index.php");
+            } else {
+                array_push($errors,"Provided credentials are incorrect.");
+            }
+        }
+    }
 ?>

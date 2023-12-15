@@ -210,13 +210,14 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 30%;
+    justify-content: space-evenly;
+    height: 80%;
     width: 100%;
 }
 
 .formInputLP {
     width: 60%;
-    height: 70%;
+    height: 10%;
     border: 2px solid black;
     border-radius: 10px;
     background-color: #D9D9D9;
