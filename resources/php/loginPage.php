@@ -12,20 +12,16 @@
             <div id="greetingLP">
                 Login
             </div>
-            <div id="inputFormsBoxLP">
-                <form class="formLP">
-                    <label for="userEmail">E-mail:</label><br>
-                    <input class="formInputLP" type="text" id="userEmail" name=email><br>
-                </form>
-                <form class="formLP">
-                    <label for="userPassword">Password:</label><br>
-                    <input class="formInputLP" type="text" id="userPassword" name=password><br>
-                </form>
-            </div>
-            <div id="buttonsBoxLP">
-                <button id="loginButtonLP">Login</button>
-                <button onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
-            </div>
+            <form method="post" class="formLP">
+                <label for="userEmail">E-mail:</label><br>
+                <input class="formInputLP" type="text" id="userEmail" name=email><br>
+                <label for="userPassword">Password:</label><br>
+                <input class="formInputLP" type="text" id="userPassword" name=password><br>
+                <div id="buttonsBoxLP">
+                    <button type="submit" id="loginButtonLP">Login</button>
+                    <button type="button" onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
+                </div>
+            </form>
         </div>
     </body>
 </html>

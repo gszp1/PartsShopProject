@@ -17,9 +17,9 @@
             </div>
             <form class="formCAP" action="createAccountPage.php" method="post">
                 <label>Username:</label><br>
-                <input class="formInputCAP" type="text" id="uname" name="username" value="<?php echo $username; ?>"><br>
+                <input class="formInputCAP" type="text" id="uname" name="username"><br>
                 <label>E-mail:</label><br>
-                <input class="formInputCAP" type="text" id="email" name="userEmail" value="<?php echo $email; ?>"><br>
+                <input class="formInputCAP" type="text" id="email" name="userEmail"><br>
                 <label>Password:</label><br>
                 <input class="formInputCAP" type="password" id="password" name="password"><br>
                 <label>Confirm password:</label><br>
