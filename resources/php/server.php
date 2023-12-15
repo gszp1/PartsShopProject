@@ -49,6 +49,7 @@
             $prepared_statement->execute();
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
+            $_SESSION["loginStatus"] = true;
             header('location: /../index.php');
         }
     }
@@ -72,6 +73,7 @@
                 $_SESSION['email'] = $email;
                 $_SESSION['username'] = mysqli_fetch_assoc($results)['Username'];
                 $_SESSION['success'] = "You are now logged in";
+                $_SESSION["loginStatuss"] = true;
                 header("location: /../index.php");
             } else {
                 array_push($errors,"Provided credentials are incorrect.");
