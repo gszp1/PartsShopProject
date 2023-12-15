@@ -54,7 +54,7 @@
         $password = mysqli_real_escape_string($dbConnection, $_POST['password']);
         
         if (empty($email) || empty($password)) {
-            array_push($errors, "All field have to be filled.");
+            array_push($errors, "All fields have to be filled.");
         }
 
         if (count($errors) == 0) {

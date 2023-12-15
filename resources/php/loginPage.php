@@ -19,7 +19,7 @@
                 <label for="userEmail">E-mail:</label><br>
                 <input class="formInputLP" type="text" id="userEmail" name=email><br>
                 <label for="userPassword">Password:</label><br>
-                <input class="formInputLP" type="text" id="userPassword" name=password><br>
+                <input class="formInputLP" type="password" id="userPassword" name=password><br>
                 <div id="buttonsBoxLP">
                     <button type="submit" id="loginButtonLP" name="loginUser">Login</button>
                     <button type="button" onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
