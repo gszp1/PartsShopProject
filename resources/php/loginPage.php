@@ -21,7 +21,7 @@
                 <label for="userPassword">Password:</label><br>
                 <input class="formInputLP" type="text" id="userPassword" name=password><br>
                 <div id="buttonsBoxLP">
-                    <button type="submit" id="loginButtonLP">Login</button>
+                    <button type="submit" id="loginButtonLP" name="loginUser">Login</button>
                     <button type="button" onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
                 </div>
             </form>
