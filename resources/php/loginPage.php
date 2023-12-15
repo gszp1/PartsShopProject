@@ -1,3 +1,6 @@
+<?php
+    include("server.php");
+?>
 <!DOCTYPE html>
 <html>
     <head lang="en">
@@ -12,7 +15,7 @@
             <div id="greetingLP">
                 Login
             </div>
-            <form method="post" class="formLP">
+            <form method="post" class="formLP" action="login.php">
                 <label for="userEmail">E-mail:</label><br>
                 <input class="formInputLP" type="text" id="userEmail" name=email><br>
                 <label for="userPassword">Password:</label><br>
@@ -23,5 +26,8 @@
                 </div>
             </form>
         </div>
+        <?php
+            include("errors.php");
+        ?>
     </body>
 </html>
