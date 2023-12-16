@@ -1,7 +1,7 @@
 <?php
     session_start();
     // if user is not logged in redirect to loginPage.php
-    if (isset($_SESSION["loginStatus"]) == false) {
+    if (isset($_SESSION["userID"]) == false) {
         header("location: loginPage.php");
         exit();
     }

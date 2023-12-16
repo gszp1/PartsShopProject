@@ -47,9 +47,6 @@
             $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
             $prepared_statement->bind_param("sss", $email, $username, $password_escp);
             $prepared_statement->execute();
-            $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
-            $_SESSION["loginStatus"] = true;
             header('location: /../index.php');
             exit();
         }
@@ -71,10 +68,7 @@
             $results = mysqli_query($dbConnection, $query);
             
             if (mysqli_num_rows($results) == 1) {
-                $_SESSION['email'] = $email;
-                $_SESSION['username'] = mysqli_fetch_assoc($results)['Username'];
-                $_SESSION['success'] = "You are now logged in";
-                $_SESSION["loginStatus"] = true;
+                $_SESSION['userID'] = mysqli_fetch_assoc($results)['CustomerID'];
                 header("location: /../index.php");
                 exit();
             } else {
