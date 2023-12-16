@@ -69,7 +69,7 @@
             
             if (mysqli_num_rows($results) == 1) {
                 $_SESSION['userID'] = mysqli_fetch_assoc($results)['CustomerID'];
-                header("location: /../index.php");
+                header("location: userAccountPage.php");
                 exit();
             } else {
                 array_push($errors,"Provided credentials are incorrect.");
