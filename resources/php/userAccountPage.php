@@ -28,8 +28,7 @@
                         <div id="dataUAP"></div>
                     </div>
                 </div>
-                <div id="pictureAndButtonsWrapperUAP">
-                    <div id="pictureBoxUAP"></div>
+                <div id="ButtonsWrapperUAP">
                     <button id="ordersButtonUAP">Orders</button>
                     <button id="returnsButtonUAP">Returns</button>
                 </div>
