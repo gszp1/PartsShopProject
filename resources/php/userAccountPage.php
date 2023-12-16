@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <div id="buttonsWrapperUAP">
-                    <button id="ordersButtonUAP">Orders</button>
-                    <button id="returnsButtonUAP">Returns</button>
+                    <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5;">Orders</button>
+                    <button class="buttonUAP" id="returnsButtonUAP" style="background-color: #4094F5;">Returns</button>
                 </div>
             </div>
         </div>
