@@ -28,7 +28,7 @@
                         <div id="dataUAP"></div>
                     </div>
                 </div>
-                <div id="ButtonsWrapperUAP">
+                <div id="buttonsWrapperUAP">
                     <button id="ordersButtonUAP">Orders</button>
                     <button id="returnsButtonUAP">Returns</button>
                 </div>
