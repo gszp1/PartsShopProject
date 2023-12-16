@@ -47,7 +47,7 @@
             $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
             $prepared_statement->bind_param("sss", $email, $username, $password_escp);
             $prepared_statement->execute();
-            header('location: /../index.php');
+            header('location: loginPage.php');
             exit();
         }
     }
