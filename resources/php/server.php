@@ -38,7 +38,7 @@
                 array_push($errors, "Username already taken.");
             }
             if($user['Email'] === $email) {
-                array_push($errors,"Email already used.");
+                array_push($errors, "Email already used.");
             }
         }
             // register user
@@ -47,10 +47,8 @@
             $prepared_statement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
             $prepared_statement->bind_param("sss", $email, $username, $password_escp);
             $prepared_statement->execute();
-            $_SESSION['username'] = $username;
-            $_SESSION['success'] = "You are now logged in";
-            $_SESSION["loginStatus"] = true;
-            header('location: /../index.php');
+            header('location: loginPage.php');
+            exit();
         }
     }
 
@@ -70,11 +68,9 @@
             $results = mysqli_query($dbConnection, $query);
             
             if (mysqli_num_rows($results) == 1) {
-                $_SESSION['email'] = $email;
-                $_SESSION['username'] = mysqli_fetch_assoc($results)['Username'];
-                $_SESSION['success'] = "You are now logged in";
-                $_SESSION["loginStatuss"] = true;
-                header("location: /../index.php");
+                $_SESSION['userID'] = mysqli_fetch_assoc($results)['CustomerID'];
+                header("location: userAccountPage.php");
+                exit();
             } else {
                 array_push($errors,"Provided credentials are incorrect.");
             }
