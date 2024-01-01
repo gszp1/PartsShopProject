@@ -308,6 +308,15 @@ body{
 
 /* User Account Page */
 
+.buttonUAP {
+    width: 40%;
+    height: 10%;
+    background-color: #F07014;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+
 #accountBoxUAP {
     display: flex;
     align-items: center;
@@ -349,38 +358,13 @@ body{
     height: 100%;
 }
 
-#pictureAndButtonsWrapperUAP {
+#buttonsWrapperUAP {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     width: 50%;
     height: 100%;
-}
-
-#ordersButtonUAP {
-    width: 40%;
-    height: 10%;
-    background-color: #4094F5;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#returnsButtonUAP{
-    width: 40%;
-    height: 10%;
-    background-color: #F07014;
-    border: 2px solid black;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#pictureBoxUAP {
-    width: 40%;
-    height: 40%;
-    background-color: white;
-    border: 2px solid black;
 }
 
 #userDataUAP {
