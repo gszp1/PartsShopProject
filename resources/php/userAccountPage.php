@@ -5,6 +5,7 @@
         header("location: loginPage.php");
         exit();
     }
+    include("functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
