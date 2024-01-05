@@ -1,0 +1,1 @@
+xcopy C:\PartShopProject\PartsShopProject\* C:\xampp\htdocs /E /I /Y
