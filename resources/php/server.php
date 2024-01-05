@@ -73,7 +73,7 @@
                 if (isset($_SESSION['previousPage']) == true) {
                     $gotoPage = $_SESSION['previousPage'];
                 }
-                header("location: '$gotoPage'");
+                header("Location: ". $gotoPage);
                 exit();
             } else {
                 array_push($errors,"Provided credentials are incorrect.");
