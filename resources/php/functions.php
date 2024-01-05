@@ -53,7 +53,7 @@
             return null;
         }
         // Get email, username, surname, name, phonenumber from database.
-        $query = "SELECT Email, Username, Surname, Name, PhoneNumber From customers WHERE userID='$userID'";
+        $query = "SELECT Email, Username, Surname, Name, PhoneNumber From customers WHERE customerID='$userID'";
         $result = mysqli_query($dbConnection, $query);
         return mysqli_fetch_assoc($result);
     }
