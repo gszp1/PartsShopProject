@@ -1,5 +1,9 @@
 <?php
     session_start();
+    if (isset($_SESSION["userID"]) == false) {
+        header("location: loginPage.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
