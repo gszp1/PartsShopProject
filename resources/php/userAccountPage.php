@@ -26,6 +26,9 @@
                     <div id="userDataUAP">
                         <div id="userDataHeaderUAP">
                             Contact data
+                            <?php
+                                create_user_data_list($_SESSION["userID"]);
+                            ?>
                         </div>
                         <div id="dataUAP"></div>
                     </div>
