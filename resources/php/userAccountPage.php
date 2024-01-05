@@ -5,6 +5,7 @@
         header("location: loginPage.php");
         exit();
     }
+    include("functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,9 @@
                         <div id="userDataHeaderUAP">
                             Contact data
                         </div>
-                        <div id="dataUAP"></div>
+                        <?php
+                            create_user_data_list($_SESSION["userID"]);
+                        ?>
                     </div>
                 </div>
                 <div id="buttonsWrapperUAP">

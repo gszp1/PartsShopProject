@@ -43,4 +43,44 @@
             echo "0 results";
         }
     }
+
+    // Function for retrieving data of user with given ID.
+    function get_full_user_data($userID) {
+        // Open connection with database.
+        $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
+        // Handle connection opening failure.
+        if ($dbConnection == false) {
+            return null;
+        }
+        // Get email, username, surname, name, phonenumber from database.
+        $query = "SELECT Email, Username, Surname, Name, PhoneNumber From customers WHERE customerID='$userID'";
+        $result = mysqli_query($dbConnection, $query);
+        return mysqli_fetch_assoc($result);
+    }
+
+    function create_user_data_list( $userID ) {
+        $user_data = get_full_user_data($userID);
+        if ($user_data == null) {
+            return;
+        }
+        $fieldOrder = ['Email', 'Username', 'Surname', 'Name', 'PhoneNumber'];
+
+        echo '<ul>';
+        foreach ($fieldOrder as $field) {
+            echo '<li>';
+            echo '<strong>' . $field . '</strong><br>'; // Label on one line
+            echo '<span>'; // Use a <span> for styling purposes if needed
+    
+            if (isset($user_data[$field])) {
+                echo htmlspecialchars($user_data[$field]);
+            } else {
+                echo '&nbsp;'; // Display empty space if the field is not present
+            }
+    
+            echo '</span>';
+            echo '</li>';
+        }
+        echo '</ul>';
+    }
+
 ?>
