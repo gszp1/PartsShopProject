@@ -69,7 +69,11 @@
             
             if (mysqli_num_rows($results) == 1) {
                 $_SESSION['userID'] = mysqli_fetch_assoc($results)['CustomerID'];
-                header("location: userAccountPage.php");
+                $gotoPage = '/../index.php';
+                if (isset($_SESSION['previousPage']) == true) {
+                    $gotoPage = $_SESSION['previousPage'];
+                }
+                header("location: '$gotoPage'");
                 exit();
             } else {
                 array_push($errors,"Provided credentials are incorrect.");
