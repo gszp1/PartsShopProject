@@ -38,6 +38,12 @@ body{
     border: 2px solid black;
 }
 
+.pageContents {
+    height: calc(100vh - 5rem);
+    width: 100vw;
+    margin-top: 5rem;
+}
+
 .navbarNew {
     display: flex;
     align-items: center;

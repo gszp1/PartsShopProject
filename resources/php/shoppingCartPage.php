@@ -23,7 +23,7 @@
             <button onclick="goToPage('./resources/php/userAccountPage.php')" id="loginButtonI">Your account</button>
             <button onclick="goToPage('./resources/php/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
-        <div>
+        <div class="pageContents">
 
         </div>
     </body>
