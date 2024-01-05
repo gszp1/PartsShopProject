@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
-        <nav class="navbar" id="navbar">
+        <nav class="navbarNew">
             <div id="shopLogoNavbarI">Part Shop</div>
             <div id="searchbarNavbarWrapperI">
                 <form id="searchBarI">
@@ -23,5 +23,8 @@
             <button onclick="goToPage('./resources/php/userAccountPage.php')" id="loginButtonI">Your account</button>
             <button onclick="goToPage('./resources/php/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
+        <div>
+
+        </div>
     </body>
 </html>
