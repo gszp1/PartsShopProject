@@ -68,17 +68,19 @@
         echo '<ul>';
         foreach ($fieldOrder as $field) {
             echo '<li>';
-            echo '<strong>' . $field . ':</strong> ';
-
+            echo '<strong>' . $field . '</strong><br>'; // Label on one line
+            echo '<span>'; // Use a <span> for styling purposes if needed
+    
             if (isset($user_data[$field])) {
                 echo htmlspecialchars($user_data[$field]);
             } else {
                 echo '&nbsp;'; // Display empty space if the field is not present
             }
-
+    
+            echo '</span>';
             echo '</li>';
         }
-        echo '</ul>';    
+        echo '</ul>';
     }
 
 ?>
