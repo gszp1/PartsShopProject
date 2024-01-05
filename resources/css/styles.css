@@ -38,6 +38,20 @@ body{
     border: 2px solid black;
 }
 
+.navbarNew {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    width: 100vw;
+    height: 10rem;
+    background-color: #CDCACA;
+    border: 2px solid black;
+}
+
 .listItemI {
     display: flex;
     flex-direction: row;
