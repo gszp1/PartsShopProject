@@ -33,7 +33,6 @@
         $user = mysqli_fetch_assoc($queryResult);
 
         if($user) {
-            echo"$user";
             if($user['Username'] === $username) {
                 array_push($errors, "Username already taken.");
             }
@@ -76,8 +75,9 @@
                 header("Location: ". $gotoPage);
                 exit();
             } else {
-                $query = "SELECT * FROM admin WHERE email ='$email' AND password='$password'";
+                $query = "SELECT * FROM admin WHERE email='$email' AND password='$password_hash'";
                 $results = mysqli_query($dbConnection, $query);
+                echo "cj";
                 if (mysqli_num_rows($results) == 1) {
                     header("Location: adminPanel.php");
                     exit();
