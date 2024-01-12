@@ -39,6 +39,9 @@ body{
 }
 
 .pageContents {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     height: calc(100vh - 5rem);
     width: 100vw;
     margin-top: 5rem;
@@ -189,10 +192,13 @@ body{
     flex-direction: column;
     align-content: space-evenly;
     justify-content: normal;
-    width: 100%;
+    width: 70%;
     min-height: 90vh;
     list-style-type: none;
     margin-top: 0;
+    margin-left: 0;
+    background-color: #ACABAB;
+    overflow: auto;
 }
 
 /*loginPageStyles*/
