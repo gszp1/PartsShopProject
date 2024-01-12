@@ -77,7 +77,6 @@
             } else {
                 $query = "SELECT * FROM admin WHERE email='$email' AND password='$password_hash'";
                 $results = mysqli_query($dbConnection, $query);
-                echo "cj";
                 if (mysqli_num_rows($results) == 1) {
                     header("Location: adminPanel.php");
                     exit();
