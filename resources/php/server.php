@@ -76,7 +76,7 @@
                 header("Location: ". $gotoPage);
                 exit();
             } else {
-                $query = "SELECT * FROM user WHERE email ='$email' AND password='$password'";
+                $query = "SELECT * FROM admin WHERE email ='$email' AND password='$password'";
                 $results = mysqli_query($dbConnection, $query);
                 if (mysqli_num_rows($results) == 1) {
                     header("Location: adminPanel.php");
