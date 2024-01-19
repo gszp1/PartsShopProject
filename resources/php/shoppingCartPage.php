@@ -30,7 +30,7 @@
             <button onclick="goToPage('./resources/php/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
-            
+
         </div>
     </body>
 </html>
