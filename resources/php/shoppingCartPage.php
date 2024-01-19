@@ -19,7 +19,7 @@
     </head>
     <body>
         <nav class="navbarNew">
-            <div id="shopLogoNavbarI">Part Shop</div>
+            <a id="shopLogoNavbarI" href="/../index.php">Part Shop</a>
             <div id="searchbarNavbarWrapperI">
                 <form id="searchBarI">
                     <input id="searchBarInputI" type="text" id="productName" name=productName><br>
