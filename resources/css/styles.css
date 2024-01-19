@@ -124,6 +124,8 @@ body{
     justify-content: space-evenly;
     flex-direction: row;
     background-color: #4094F5;
+    text-decoration: none;
+    color: black;
     width: 20%;
     height: 80%;
     border: 2px solid black;
