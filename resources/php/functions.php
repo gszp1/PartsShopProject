@@ -1,4 +1,13 @@
 <?php
+
+    function connect_with_database() {
+        $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
+        if ($dbConnection == false) {
+            return null;
+        }
+        return $dbConnection;
+    }
+
     function validate_email($userInputEmail) {
         $sanitizedEmail = filter_var($userInputEmail, FILTER_SANITIZE_EMAIL);
         if (filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
@@ -9,9 +18,9 @@
     }
 
     function get_user_data($userID) {
-        $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
-        if ($dbConnection == false) {
-            return null;
+        $dbConnection = connect_with_database();
+        if ($dbConnection == null) {
+            return;
         }
         $query = "SELECT Email, Username, Surname, Name, PhoneNumber FROM customers WHERE userID='$userID'";
         $result = mysqli_query($dbConnection, $query);
@@ -19,13 +28,13 @@
     }
 
     function load_products_from_database() {
-        $connection = mysqli_connect('localhost','dbclient', 'ar0220','partshopdb');
-        if (!$connection) {
-            echo 'Connection error: ' . mysqli_connect_error();
+        $dbConnection = connect_with_database();
+        if ($dbConnection == null) {
+            return;
         }
         $query = "SELECT products.*, manufacturers.ManufacturerName FROM products JOIN manufacturers ON
                     products.ManufacturerID = manufacturers.ManufacturerID;";
-        $products = $connection->query($query);
+        $products = $dbConnection->query($query);
         if ($products->num_rows > 0) {
             while($row = $products->fetch_assoc()) {
                 $pic = $row["Picture"];
@@ -46,11 +55,9 @@
 
     // Function for retrieving data of user with given ID.
     function get_full_user_data($userID) {
-        // Open connection with database.
-        $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
-        // Handle connection opening failure.
-        if ($dbConnection == false) {
-            return null;
+        $dbConnection = connect_with_database();
+        if ($dbConnection == null) {
+            return;
         }
         // Get email, username, surname, name, phonenumber from database.
         $query = "SELECT Email, Username, Surname, Name, PhoneNumber From customers WHERE customerID='$userID'";
@@ -70,17 +77,24 @@
             echo '<li>';
             echo '<strong>' . $field . '</strong><br>'; // Label on one line
             echo '<span>'; // Use a <span> for styling purposes if needed
-    
+
             if (isset($user_data[$field])) {
                 echo htmlspecialchars($user_data[$field]);
             } else {
                 echo '&nbsp;'; // Display empty space if the field is not present
             }
-    
+
             echo '</span>';
             echo '</li>';
         }
         echo '</ul>';
     }
 
+    function show_user_shoppingCart($userID) {
+        $dbConnection = connect_with_database();
+        if ($dbConnection == null) {
+            return;
+        }
+
+    }
 ?>
