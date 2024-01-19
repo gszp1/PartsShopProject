@@ -421,3 +421,14 @@ body{
     height: 80%;
     width: 100%;
 }
+
+/*Shopping cart*/
+
+#statusBarSCP {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 10rem;
+    width: 100%;
+}
