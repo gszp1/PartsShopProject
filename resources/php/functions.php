@@ -70,13 +70,13 @@
             echo '<li>';
             echo '<strong>' . $field . '</strong><br>'; // Label on one line
             echo '<span>'; // Use a <span> for styling purposes if needed
-    
+
             if (isset($userData[$field])) {
                 echo htmlspecialchars($userData[$field]);
             } else {
                 echo '&nbsp;'; // Display empty space if the field is not present
             }
-    
+
             echo '</span>';
             echo '</li>';
         }
