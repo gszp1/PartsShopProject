@@ -431,4 +431,6 @@ body{
     justify-content: space-evenly;
     height: 10rem;
     width: 100%;
+    background-color: #756C6C;
+    border: 2px solid black;
 }
