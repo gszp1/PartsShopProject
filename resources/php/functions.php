@@ -91,10 +91,11 @@
     }
 
     function show_user_shoppingCart($userID) {
+        $total_cost = 0;
         $dbConnection = connect_with_database();
         if ($dbConnection == null) {
-            return;
+            return $total_cost;
         }
-
+        //todo: Check database for redundant tables and implement displaying products from shopping list.
     }
 ?>
