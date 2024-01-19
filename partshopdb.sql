@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2023 at 03:20 AM
+-- Generation Time: Sty 19, 2024 at 11:03 PM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `partshopdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `admin`
+--
+
+CREATE TABLE `admin` (
+  `adminID` int(11) NOT NULL,
+  `email` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `password` char(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`adminID`, `email`, `password`) VALUES
+(5, 'admin@admin.admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -42,13 +61,7 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CustomerID`, `Email`, `Username`, `Surname`, `Name`, `PhoneNumber`, `Password`) VALUES
-(21, 'aaaa', 'aaa@aaa', NULL, NULL, NULL, '0cc175b9c0f1b6a83'),
-(22, 'aaaa', 'aaa@aaa', NULL, NULL, NULL, '4124bc0a9335c27f0'),
-(23, 'aaa@aaa', 'aaaa', NULL, NULL, NULL, '0cc175b9c0f1b6a83'),
-(24, 'sto@gmail.cum', 'stoker', NULL, NULL, NULL, '74b87337454200d4d'),
-(25, 'BuryZenek@gmail.com', 'Bezi', NULL, NULL, NULL, '0cc175b9c0f1b6a83'),
-(26, 'aa@aaaaa', 'aa', NULL, NULL, NULL, '0cc175b9c0f1b6a83'),
-(27, 'suk@suksuk.cum', 'suksuk', NULL, NULL, NULL, '76be879a667b655cec8f70bbf7b6cb99');
+(29, 'test@gmail.com', 'test', NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6');
 
 -- --------------------------------------------------------
 
@@ -98,7 +111,6 @@ CREATE TABLE `orderdetails` (
 CREATE TABLE `orders` (
   `OrderID` bigint(20) NOT NULL,
   `CustomerID` bigint(20) NOT NULL,
-  `ShipperID` bigint(20) NOT NULL,
   `OrderDate` datetime NOT NULL,
   `ShipDate` datetime NOT NULL,
   `RequiredDate` datetime NOT NULL,
@@ -186,35 +198,6 @@ INSERT INTO `products` (`ProductID`, `CategoryID`, `SupplierID`, `ManufacturerID
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `productwarranties`
---
-
-CREATE TABLE `productwarranties` (
-  `ProductID` bigint(20) NOT NULL,
-  `WarrantyID` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `shipperid`
---
-
-CREATE TABLE `shipperid` (
-  `ShipperID` bigint(20) NOT NULL,
-  `CompanyName` varchar(50) NOT NULL,
-  `PhoneNumber` varchar(13) NOT NULL,
-  `Country` varchar(50) NOT NULL,
-  `Region` varchar(50) NOT NULL,
-  `City` varchar(50) NOT NULL,
-  `Address` varchar(50) NOT NULL,
-  `HomePage` varchar(50) NOT NULL,
-  `PostalCode` varchar(7) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktura tabeli dla tabeli `shoppingcart`
 --
 
@@ -225,23 +208,16 @@ CREATE TABLE `shoppingcart` (
   `Price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `warranties`
---
-
-CREATE TABLE `warranties` (
-  `WarrantyID` bigint(20) NOT NULL,
-  `WarrantyName` varchar(50) NOT NULL,
-  `Duration` time NOT NULL,
-  `StartDate` datetime NOT NULL,
-  `EndDate` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
 --
 -- Indeksy dla zrzutów tabel
 --
+
+--
+-- Indeksy dla tabeli `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminID`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indeksy dla tabeli `customers`
@@ -268,8 +244,7 @@ ALTER TABLE `orderdetails`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`OrderID`),
-  ADD KEY `Orders_fk0` (`CustomerID`),
-  ADD KEY `Orders_fk1` (`ShipperID`);
+  ADD KEY `Orders_fk0` (`CustomerID`);
 
 --
 -- Indeksy dla tabeli `partcategories`
@@ -294,19 +269,6 @@ ALTER TABLE `products`
   ADD KEY `Products_fk2` (`ManufacturerID`);
 
 --
--- Indeksy dla tabeli `productwarranties`
---
-ALTER TABLE `productwarranties`
-  ADD PRIMARY KEY (`ProductID`,`WarrantyID`),
-  ADD KEY `ProductWarranties_fk1` (`WarrantyID`);
-
---
--- Indeksy dla tabeli `shipperid`
---
-ALTER TABLE `shipperid`
-  ADD PRIMARY KEY (`ShipperID`);
-
---
 -- Indeksy dla tabeli `shoppingcart`
 --
 ALTER TABLE `shoppingcart`
@@ -314,20 +276,20 @@ ALTER TABLE `shoppingcart`
   ADD KEY `ShoppingCart_fk1` (`CustomerID`);
 
 --
--- Indeksy dla tabeli `warranties`
---
-ALTER TABLE `warranties`
-  ADD PRIMARY KEY (`WarrantyID`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `CustomerID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `CustomerID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `manufacturers`
@@ -360,18 +322,6 @@ ALTER TABLE `products`
   MODIFY `ProductID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `shipperid`
---
-ALTER TABLE `shipperid`
-  MODIFY `ShipperID` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `warranties`
---
-ALTER TABLE `warranties`
-  MODIFY `WarrantyID` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -386,8 +336,7 @@ ALTER TABLE `orderdetails`
 -- Constraints for table `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `Orders_fk0` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`),
-  ADD CONSTRAINT `Orders_fk1` FOREIGN KEY (`ShipperID`) REFERENCES `shipperid` (`ShipperID`);
+  ADD CONSTRAINT `Orders_fk0` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`);
 
 --
 -- Constraints for table `products`
@@ -396,13 +345,6 @@ ALTER TABLE `products`
   ADD CONSTRAINT `Products_fk0` FOREIGN KEY (`CategoryID`) REFERENCES `partcategories` (`CategoryID`),
   ADD CONSTRAINT `Products_fk1` FOREIGN KEY (`SupplierID`) REFERENCES `partsuppliers` (`SupplierID`),
   ADD CONSTRAINT `Products_fk2` FOREIGN KEY (`ManufacturerID`) REFERENCES `manufacturers` (`ManufacturerID`);
-
---
--- Constraints for table `productwarranties`
---
-ALTER TABLE `productwarranties`
-  ADD CONSTRAINT `ProductWarranties_fk0` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ProductID`),
-  ADD CONSTRAINT `ProductWarranties_fk1` FOREIGN KEY (`WarrantyID`) REFERENCES `warranties` (`WarrantyID`);
 
 --
 -- Constraints for table `shoppingcart`
