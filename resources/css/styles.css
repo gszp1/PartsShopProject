@@ -11,13 +11,13 @@ body{
 }
 
 .error {
-    width: 50%; 
-    margin: 0px auto; 
-    padding: 10px; 
-    border: 1px solid #a94442; 
-    color: #a94442; 
-    background: #f2dede; 
-    border-radius: 5px; 
+    width: 50%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background: #f2dede;
+    border-radius: 5px;
     text-align: left;
 }
 
@@ -144,7 +144,7 @@ body{
     height: 60%;
     background-color: #756C6C;
     border: 2px solid black;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 #shoppingCartI {
@@ -152,7 +152,7 @@ body{
     height: 60%;
     background-color: #756C6C;
     border: 2px solid black;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 #searchBarI {
@@ -342,7 +342,7 @@ body{
     background-color: #F07014;
     border: 2px solid black;
     border-radius: 10px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 #accountBoxUAP {
