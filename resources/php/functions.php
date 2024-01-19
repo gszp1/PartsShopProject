@@ -59,8 +59,8 @@
     }
 
     function create_user_data_list( $userID ) {
-        $user_data = get_full_user_data($userID);
-        if ($user_data == null) {
+        $userData = get_full_user_data($userID);
+        if ($userData == null) {
             return;
         }
         $fieldOrder = ['Email', 'Username', 'Surname', 'Name', 'PhoneNumber'];
@@ -71,8 +71,8 @@
             echo '<strong>' . $field . '</strong><br>'; // Label on one line
             echo '<span>'; // Use a <span> for styling purposes if needed
     
-            if (isset($user_data[$field])) {
-                echo htmlspecialchars($user_data[$field]);
+            if (isset($userData[$field])) {
+                echo htmlspecialchars($userData[$field]);
             } else {
                 echo '&nbsp;'; // Display empty space if the field is not present
             }
