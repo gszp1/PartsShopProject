@@ -29,7 +29,7 @@
                 </div>
             </form>
         </div>
-        <?php 
+        <?php
             include('errors.php');
         ?>
     </body>
