@@ -91,10 +91,10 @@
     }
 
     function show_user_shoppingCart($userID) {
-        $total_cost = 0;
+        $totalCost = 0;
         $dbConnection = connect_with_database();
         if ($dbConnection == null) {
-            return $total_cost;
+            return $totalCost;
         }
         //get all products from user's shopping cart.
         $query = "SELECT p.Picture, p.ProductName, sc.Quantity, sc.Price " .
@@ -102,5 +102,29 @@
                  "INNER JOIN shoppingcart AS sc ON p.ProductID = sc.ProductID " .
                  "INNER JOIN customers AS c ON sc.CustomerID = c.CustomerID " .
                  "WHERE c.CustomerID = '$userID';";
-
+        $result = mysqli_query($dbConnection, $query);
+        if ($result) {
+            // Start HTML list
+            echo '<ul>';
+            // Loop through the result set
+            while ($row = mysqli_fetch_assoc($result)) {
+                // Calculate total price (quantity * price)
+                $totalPrice = $row['Quantity'] * $row['Price'];
+                // Display each entry in an HTML list item
+                echo '<li>';
+                echo '<img src="' . $row['Picture'] . '" alt="' . $row['ProductName'] . '">';
+                echo '<p>Product: ' . $row['ProductName'] . '</p>';
+                echo '<p>Quantity: ' . $row['Quantity'] . '</p>';
+                echo '<p>Price: $' . $row['Price'] . '</p>';
+                echo '<p>Total: $' . $totalPrice . '</p>';
+                echo '</li>';
+                $totalCost = $totalCost + $totalPrice;
+            }
+            // End HTML list
+            echo '</ul>';
+        } else {
+            // Handle the case where the query was not successful
+            echo 'Error executing query: ' . mysqli_error($dbConnection);
+        }
+        return $totalCost;
     }
