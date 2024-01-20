@@ -96,4 +96,11 @@
         if ($dbConnection == null) {
             return $total_cost;
         }
+        //get all products from user's shopping cart.
+        $query = "SELECT p.Picture, p.ProductName, sc.Quantity, sc.Price " .
+                 "FROM products AS p " .
+                 "INNER JOIN shoppingcart AS sc ON p.ProductID = sc.ProductID " .
+                 "INNER JOIN customers AS c ON sc.CustomerID = c.CustomerID " .
+                 "WHERE c.CustomerID = '$userID';";
+
     }
