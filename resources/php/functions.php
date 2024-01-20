@@ -96,6 +96,5 @@
         if ($dbConnection == null) {
             return $total_cost;
         }
-        //todo: Check database for redundant tables and implement displaying products from shopping list.
     }
 ?>

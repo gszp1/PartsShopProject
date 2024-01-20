@@ -4,9 +4,8 @@
     $username = "";
     $email = "";
     $errors = array();
-    $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
-
-    if ($dbConnection == false) {
+    $dbConnection = connect_with_database();
+    if ($dbConnection == null) {
         die('Failed to connect to database'. mysqli_connect_error());
     }
 
