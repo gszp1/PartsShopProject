@@ -41,6 +41,11 @@
                 $manufacturerName = $row["ManufacturerName"];
                 $price = $row["Price"];
                 $pic = $row["Picture"];
+                $productID = $row["ProductID"];
+                $userID = -1;
+                if (isset($_SESSION['userID']) == true) {
+                    $userID = $_SESSION['userID'];
+                }
                 echo "<li class='listItemI'>".
                     "<div class='imageContainerI'>".
                     "<img src=\"$pic\" alt=''></div>".
@@ -52,7 +57,7 @@
                     "</ul>".
                     "</div>".
                     "<div class='buttonContainerI'>".
-                    "<button class='shoppingCartButtonItemI'>add to shopping cart</button>".
+                    "<button class='shoppingCartButtonItemI' onclick='../js/addToCart($productID, $userID, 1, $price)'>add to shopping cart</button>".
                     "</div>".
                     "</li>";
             }
