@@ -31,7 +31,9 @@
         </nav>
         <div class="pageContents">
             <div id="statusBarSCP">
-                
+                <?php
+                    show_user_shoppingCart($_SESSION["userID"]);
+                ?>
             </div>
         </div>
     </body>
