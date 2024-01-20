@@ -19,8 +19,10 @@
 
         //check if insertion can be performed
         // check if product exists
-        $query = "SELECT * FROM products WHERE ProductID = '$productID'";
-        $result = $dbConnection->query($query);
+        $preparedStatement = $dbConnection->prepare("SELECT * FROM products WHERE ProductID = ?");
+        $preparedStatement->bind_param("i", $productID);
+        $preparedStatement->execute();
+        $result = $preparedStatement->get_result();
         if ($result === false || $result->num_rows === 0) {
             exit("No such product exists.");
         }
@@ -31,8 +33,10 @@
             exit("Not enough products available");
         }
         // check if user exists.
-        $query = "SELECT * FROM customers WHERE CustomerID = '$CustomerID'";
-        $result = $dbConnection->query($query);
+        $preparedStatement = $dbConnection->prepare("SELECT * FROM customers WHERE CustomerID = ?");
+        $preparedStatement->bind_param("i", $customerID);
+        $preparedStatement->execute();
+        $result = $preparedStatement->get_result();
         if ($result === false || $result->num_rows === 0) {
             exit("No such customer exists.");
         }
