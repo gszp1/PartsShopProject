@@ -20,6 +20,9 @@
         //check if insertion can be performed
         // check if product exists
         $preparedStatement = $dbConnection->prepare("SELECT * FROM products WHERE ProductID = ?");
+        if ($preparedStatement === false) {
+            exit("Error in preparing the statement." . $dbConnection->error);
+        }
         $preparedStatement->bind_param("i", $productID);
         $preparedStatement->execute();
         $result = $preparedStatement->get_result();
@@ -30,28 +33,31 @@
         $productsRow = $result->fetch_assoc();
         $availableQuantity = $productsRow['quantity'];
         if ($quantity > $availableQuantity) {
-            exit("Not enough products available");
+            exit("Not enough products available.");
         }
         // check if user exists.
         $preparedStatement = $dbConnection->prepare("SELECT * FROM customers WHERE CustomerID = ?");
+        if ($preparedStatement === false) {
+            exit("Error in preparing the statement." . $dbConnection->error);
+        }
         $preparedStatement->bind_param("i", $customerID);
         $preparedStatement->execute();
         $result = $preparedStatement->get_result();
         if ($result === false || $result->num_rows === 0) {
-            exit("No such customer exists.");
+            exit("No such customer exists." );
         }
 
 
         // prepare statement.
         $preparedStatement = $dbConnection->prepare("INSERT INTO shoppingcart(ProductID, CustomerID, Quantity, Price) VALUES (?, ?, ?, ?)");
         if ($preparedStatement === false) {
-            exit("Error in preparing the statement.");
+            exit("Error in preparing the statement." . $dbConnection->error);
         }
         $preparedStatement->bind_param("iiid", $productID, $customerID, $quantity, $price);
         // execute statement.
         $result = $preparedStatement->execute();
         if ($result === false) {
-            die("Error in executing the statement.");
+            die("Error in executing the statement." . $preparedStatement->error);
         }
         // close the statement.
         $preparedStatement->close();
