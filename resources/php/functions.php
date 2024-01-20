@@ -32,21 +32,29 @@
         if ($dbConnection == null) {
             return;
         }
-        $query = "SELECT products.*, manufacturers.ManufacturerName FROM products JOIN manufacturers ON
-                    products.ManufacturerID = manufacturers.ManufacturerID;";
+        $query = "SELECT products.*, manufacturers.ManufacturerName FROM products " .
+                 "JOIN manufacturers ON products.ManufacturerID = manufacturers.ManufacturerID;";
         $products = $dbConnection->query($query);
         if ($products->num_rows > 0) {
             while($row = $products->fetch_assoc()) {
+                $productName = $row["ProductName"];
+                $manufacturerName = $row["ManufacturerName"];
+                $price = $row["Price"];
                 $pic = $row["Picture"];
                 echo "<li class='listItemI'>".
                     "<div class='imageContainerI'>".
                     "<img src=\"$pic\" alt=''></div>".
                     "<div class='dataContainerI'>".
-                    "<ul><li>"."Name:  ". $row["ProductName"]."</li>".
-                    "<li>"."Manufacturer:  ". $row["ManufacturerName"]."</li>".
-                    "<li>"."Price:  ". $row["Price"]." PLN"."</li></ul></div>".
+                    "<ul>".
+                    "<li>" . "Name: " . $productName . "</li>".
+                    "<li>" . "Manufacturer: " . $manufacturerName . "</li>".
+                    "<li>" . "Price: " . $price . " PLN" . "</li>".
+                    "</ul>".
+                    "</div>".
                     "<div class='buttonContainerI'>".
-                    "<button class='shoppingCartButtonItemI'>add to shopping cart</button></div></li>";
+                    "<button class='shoppingCartButtonItemI'>add to shopping cart</button>".
+                    "</div>".
+                    "</li>";
             }
         } else {
             echo "0 results";
