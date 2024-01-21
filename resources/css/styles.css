@@ -7,6 +7,7 @@ body{
     height: 100vh;
     margin: 0;
     background-color: white;
+    box-sizing: border-box;
 }
 
 .error {
@@ -20,19 +21,18 @@ body{
     text-align: left;
 }
 
-/* index */
-
-.navbar {
+.navbarNew {
     display: flex;
     align-items: center;
-    justify-content:space-evenly ;
+    justify-content: space-evenly;
     flex-direction: row;
     position: fixed;
-    z-index: 1000;
     overflow: hidden;
+    margin: 0;
     top: 0;
-    width: 80vw;
-    height: 10vh;
+    width: 100%;
+    height: 5rem;
+    padding: 0;
     background-color: #CDCACA;
     border: 2px solid black;
 }
@@ -42,22 +42,24 @@ body{
     align-items: center;
     flex-direction: column;
     height: calc(100vh - 5rem);
-    width: 100vw;
-    margin-top: 5rem;
+    width: 100%;
+    margin: 5rem 0 0 0;
+    padding: 0;
 }
 
-.navbarNew {
+/* index */
+
+#productsListI{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    position: fixed;
-    overflow: hidden;
-    top: 0;
-    width: 100vw;
-    height: 5rem;
-    background-color: #CDCACA;
-    border: 2px solid black;
+    flex-direction: column;
+    align-content: space-evenly;
+    justify-content: normal;
+    width: 70%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #ACABAB;
+    overflow: auto;
 }
 
 .listItemI {
@@ -175,31 +177,6 @@ body{
     border: 2px solid black;
     background-color: #756C6C;
     cursor: pointer;
-}
-
-#contentI {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    min-height: 90vh;
-    width: 60vw;
-    margin-top: 10vh;
-    overflow: auto;
-    background-color: #ACABAB;
-}
-
-#productsListI{
-    display: flex;
-    flex-direction: column;
-    align-content: space-evenly;
-    justify-content: normal;
-    width: 70%;
-    min-height: 90vh;
-    list-style-type: none;
-    margin-top: 0;
-    margin-left: 0;
-    background-color: #ACABAB;
-    overflow: auto;
 }
 
 /*loginPageStyles*/
