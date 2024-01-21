@@ -42,6 +42,7 @@
                 $price = $row["Price"];
                 $pic = $row["Picture"];
                 $productID = $row["ProductID"];
+                $quantity = 1;
                 $userID = -1;
                 if (isset($_SESSION['userID']) == true) {
                     $userID = $_SESSION['userID'];
@@ -57,7 +58,7 @@
                     "</ul>".
                     "</div>".
                     "<div class='buttonContainerI'>".
-                    "<button class='shoppingCartButtonItemI' onclick='../js/addToCart($productID, $userID, 1, $price)'>add to shopping cart</button>".
+                    "<button class='shoppingCartButtonItemI' onclick='../js/addToCart($productID, $userID, $quantity, $price)'>add to shopping cart</button>".
                     "</div>".
                     "</li>";
             }
@@ -114,7 +115,7 @@
                  "FROM products AS p " .
                  "INNER JOIN shoppingcart AS sc ON p.ProductID = sc.ProductID " .
                  "INNER JOIN customers AS c ON sc.CustomerID = c.CustomerID " .
-                 "WHERE c.CustomerID = '$userID';";
+                 "WHERE c.CustomerID='$userID';";
         $result = mysqli_query($dbConnection, $query);
         if ($result) {
             // Start HTML list

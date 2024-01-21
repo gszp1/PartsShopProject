@@ -7,7 +7,6 @@
         if ($dbConnection == null) {
             exit("Failed to connect with database.");
         }
-        echo "tutaj";
         //sanitize data.
         $productID = mysqli_real_escape_string($dbConnection, $_POST['productID']);
         $customerID = mysqli_real_escape_string($dbConnection, $_POST['customerID']);

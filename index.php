@@ -9,7 +9,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PartShop</title>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="./resources/js/script.js"></script>
         <link rel="stylesheet" href="./resources/css/styles.css">
     </head>
     <body>
@@ -17,7 +18,7 @@
             <a id="shopLogoNavbarI" href="index.php">Part Shop</a>
             <div id="searchbarNavbarWrapperI">
                 <form id="searchBarI">
-                    <input id="searchBarInputI" type="text" id="productName" name=productName><br>
+                    <input id="searchBarInputI" type="text" name=productName><br>
                 </form>
                 <button id="searchButtonI">Search</button>
             </div>
@@ -31,6 +32,5 @@
                 ?>
             </ul>
         </div>
-        <script src="./resources/js/script.js"></script>
     </body>
 </html>
