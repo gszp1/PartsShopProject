@@ -1,5 +1,5 @@
 <?php
-    include("./resources/php/functions.php");
+    include("./resources/php/scripts/functions.php");
     session_start();
 ?>
 
@@ -22,8 +22,8 @@
                 </form>
                 <button id="searchButtonI">Search</button>
             </div>
-            <button onclick="goToPage('./resources/php/userAccountPage.php')" id="loginButtonI">Your account</button>
-            <button onclick="goToPage('./resources/php/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
+            <button onclick="goToPage('./resources/php/pages/userAccountPage.php')" id="loginButtonI">Your account</button>
+            <button onclick="goToPage('./resources/php/pages/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
             <ul id="productsListI">

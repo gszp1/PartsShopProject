@@ -1,5 +1,5 @@
 <?php
-    include("/resources/php/scripts/server.php");
+    include("./../scripts/server.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login page</title>
         <link rel="stylesheet" href="/resources/css/styles.css">
-        <script src="/resources/js/script.js"></script>
+        <script src="./../../js/script.js"></script>
     </head>
     <body style="justify-content: center;">
         <div id="loginBoxLP">
@@ -22,12 +22,12 @@
                 <input class="formInputLP" type="password" id="userPassword" name=password><br>
                 <div id="buttonsBoxLP">
                     <button type="submit" id="loginButtonLP" name="loginUser">Login</button>
-                    <button type="button" onclick="goToPage('/resources/php/pages/createAccountPage.php')" id="registerButtonLP">Register</button>
+                    <button type="button" onclick="goToPage('createAccountPage.php')" id="registerButtonLP">Register</button>
                 </div>
             </form>
         </div>
         <?php
-            include("/resources/php/misc/errors.php");
+            include("./../misc/errors.php");
         ?>
     </body>
 </html>

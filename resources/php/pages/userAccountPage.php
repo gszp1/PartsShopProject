@@ -6,7 +6,7 @@
         header("location: loginPage.php");
         exit();
     }
-    include("/resources/php/scripts/functions.php");
+    include("./../scripts/functions.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User account</title>
-        <link rel="stylesheet" href="/resources/css/styles.css">
+        <link rel="stylesheet" href="./../../css/styles.css">
 
     </head>
     <body style="align-items:center; justify-content: center;">
@@ -37,10 +37,10 @@
                     <button class="buttonUAP" id="updateDataUAP" style="background-color: #4094F5">Update data</button>
                     <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
                     <button class="buttonUAP" id="returnsButtonUAP" style="background-color: #4094F5">Returns</button>
-                    <button onclick="goToPage('/resources/php/misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
+                    <button onclick="goToPage('./../misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
                 </div>
             </div>
         </div>
-        <script src="../js/script.js"></script>
+        <script src="./../../js/script.js"></script>
     </body>
 </html>
