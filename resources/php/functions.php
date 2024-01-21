@@ -17,16 +17,6 @@
         }
     }
 
-    function get_user_data($userID) {
-        $dbConnection = connect_with_database();
-        if ($dbConnection == null) {
-            return;
-        }
-        $query = "SELECT Email, Username, Surname, Name, PhoneNumber FROM customers WHERE userID='$userID'";
-        $result = mysqli_query($dbConnection, $query);
-        return mysqli_fetch_assoc($result);
-    }
-
     function load_products_from_database() {
         $dbConnection = connect_with_database();
         if ($dbConnection == null) {
@@ -74,8 +64,16 @@
             return;
         }
         // Get email, username, surname, name, phonenumber from database.
-        $query = "SELECT Email, Username, Surname, Name, PhoneNumber From customers WHERE customerID='$userID'";
-        $result = mysqli_query($dbConnection, $query);
+        $preparedStatement = $dbConnection->prepare("SELECT Email, Username, Surname, Name, PhoneNumber FROM customers WHERE CustomerID=?");
+        if ($preparedStatement === false) {
+            return null;
+        }
+        $preparedStatement->bind_param("i", $userID);
+        $preparedStatement->execute();
+        $result = $preparedStatement->get_result();
+        if ($result === false || $result->num_rows === 0) {
+            return null;
+        }
         return mysqli_fetch_assoc($result);
     }
 
