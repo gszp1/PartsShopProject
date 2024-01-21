@@ -20,7 +20,7 @@
         // check if product exists
         $preparedStatement = $dbConnection->prepare("SELECT * FROM products WHERE ProductID = ?");
         if ($preparedStatement === false) {
-            exit("Error in preparing the statement." . $dbConnection->error);
+            exit("Error in preparing the statement.");
         }
         $preparedStatement->bind_param("i", $productID);
         $preparedStatement->execute();
@@ -37,7 +37,7 @@
         // check if user exists.
         $preparedStatement = $dbConnection->prepare("SELECT * FROM customers WHERE CustomerID = ?");
         if ($preparedStatement === false) {
-            exit("Error in preparing the statement." . $dbConnection->error);
+            exit("Error in preparing the statement.");
         }
         $preparedStatement->bind_param("i", $customerID);
         $preparedStatement->execute();
@@ -50,13 +50,13 @@
         // prepare statement.
         $preparedStatement = $dbConnection->prepare("INSERT INTO shoppingcart(ProductID, CustomerID, Quantity, Price) VALUES (?, ?, ?, ?)");
         if ($preparedStatement === false) {
-            exit("Error in preparing the statement." . $dbConnection->error);
+            exit("Error in preparing the statement.");
         }
         $preparedStatement->bind_param("iiid", $productID, $customerID, $quantity, $price);
         // execute statement.
         $result = $preparedStatement->execute();
         if ($result === false) {
-            die("Error in executing the statement." . $preparedStatement->error);
+            exit("Error in executing the statement.");
         }
         // close the statement.
         $preparedStatement->close();
