@@ -13,13 +13,13 @@ function addToCart(productID, customerID, quantity, price) {
                 quantity: quantity,
                 price: price
             },
-        success: function(response) {
-            // Handle the response from the server if needed
-            alert(response);
-        },
-        error: function(error) {
-            // Handle the error if needed
-            alert('Error adding to cart');
-        }
+        // success: function(response) {
+        //     // Handle the response from the server if needed
+        //     alert(response);
+        // },
+        // error: function(error) {
+        //     // Handle the error if needed
+        //     alert('Error adding to cart');
+        // }
     });
 }

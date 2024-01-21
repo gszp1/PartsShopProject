@@ -30,7 +30,7 @@
         }
         // check for product availability.
         $productsRow = $result->fetch_assoc();
-        $availableQuantity = $productsRow['quantity'];
+        $availableQuantity = $productsRow['UnitsInStock'];
         if ($quantity > $availableQuantity) {
             exit("Not enough products available.");
         }
