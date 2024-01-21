@@ -37,13 +37,13 @@
         // check if user exists.
         $preparedStatement = $dbConnection->prepare("SELECT * FROM customers WHERE CustomerID = ?");
         if ($preparedStatement === false) {
-            exit("Error in preparing the statement.");
+            exit("You have to login first.");
         }
         $preparedStatement->bind_param("i", $customerID);
         $preparedStatement->execute();
         $result = $preparedStatement->get_result();
         if ($result === false || $result->num_rows === 0) {
-            exit("No such customer exists." );
+            exit("No such customer exists.");
         }
 
 
@@ -62,4 +62,5 @@
         $preparedStatement->close();
         // close the database connection.
         $dbConnection->close();
+        return "Product added to shopping cart.";
     }
