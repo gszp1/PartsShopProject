@@ -7,7 +7,7 @@ function addToCart(productID, customerID, quantity, price) {
     // Send AJAX request to add product to the shopping cart
     $.ajax({
         type: 'POST',
-        url: './php/add_to_cart.php',  // Replace with the actual URL handling the request
+        url: './resources/php/add_to_cart.php',
         data: { productID: productID,
                 customerID: customerID,
                 quantity: quantity,

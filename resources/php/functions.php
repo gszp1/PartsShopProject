@@ -58,7 +58,7 @@
                     "</ul>".
                     "</div>".
                     "<div class='buttonContainerI'>".
-                    "<button class='shoppingCartButtonItemI' onclick='../js/addToCart($productID, $userID, $quantity, $price)'>add to shopping cart</button>".
+                    "<button class='shoppingCartButtonItemI' onclick='addToCart($productID, $userID, $quantity, $price)'>add to shopping cart</button>".
                     "</div>".
                     "</li>";
             }
