@@ -30,6 +30,9 @@
             <button onclick="goToPage('./../pages/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
+            <div id="productListSCP">
+                
+            </div>
             <div id="statusBarSCP">
                 <?php
                     show_user_shoppingCart($_SESSION["userID"]);
