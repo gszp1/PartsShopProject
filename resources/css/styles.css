@@ -409,3 +409,9 @@ body{
     background-color: #756C6C;
     border: 2px solid black;
 }
+
+#productListSCP {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}

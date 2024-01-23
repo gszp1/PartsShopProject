@@ -23,17 +23,3 @@ function addToCart(productID, customerID, quantity, price) {
         }
     });
 }
-
-function fetchProductsFromShoppingCart() {
-    $.ajax({
-        url: 'products.php',
-        type: 'GET',
-        dataType: 'json',
-        success: function (data) {
-            displayProducts(data);
-        },
-        error: function () {
-            console.error('Error fetching product data');
-        }
-    });
-}
