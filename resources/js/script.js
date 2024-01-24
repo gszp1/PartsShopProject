@@ -59,6 +59,9 @@ function displayProducts(products) {
     cartContainer.empty();
     statusBar.empty();
 
+    var userID = 0;
+    var flag = 0;
+
     data.forEach(function (product) {
         var productBox = $('<div class="productBoxSCP">');
         var picturePath = "./../../.." + product.picture;
@@ -72,6 +75,10 @@ function displayProducts(products) {
         productBox.append('<span>Quantity: ' + quantity + '</span>');
         productBox.append('<span>Unit Price: $' + price.toFixed(2) + '</span>');
         productBox.append('<span>Total Price: $' + (quantity * price).toFixed(2) + '</span>');
+
+        if (flag == 0) {
+            userID = parseInt(product.userID);
+        }
 
         // Add a button to remove the product
         var removeButton = $('<button>');
@@ -92,7 +99,7 @@ function displayProducts(products) {
     createOrderButton.text('Create Order');
     createOrderButton.click(function () {
         // Call a function to handle order creation
-        createOrder();
+        createOrder(userID);
     });
 
     statusBar.append(totalCostBar);

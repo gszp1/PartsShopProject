@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($preparedStatement === false) {
         exit("Failed to prepare statement.");
     }
-    $userID = mysqli_real_escape_string($dbConnection, $_POST['customerID']);
+    $userID = $_POST['customerID'];
     $preparedStatement->bind_param("i", $userID);
     if (!$preparedStatement->execute()) {
         exit("Execution failed: " . $preparedStatement->error);
