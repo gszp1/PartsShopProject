@@ -18,7 +18,10 @@
             exit("Failed to prepare statement.");
         }
         $preparedStatement->bind_param("i", $userID);
-        $preparedStatement->execute();
+        if (!$preparedStatement->execute()) {
+            exit("Execution failed: " . $preparedStatement->error);
+        }
+    
 
         // Bind the result variables
         $preparedStatement->bind_result($picture, $productName, $quantity, $price);
