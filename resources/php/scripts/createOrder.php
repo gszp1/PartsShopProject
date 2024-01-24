@@ -53,10 +53,23 @@
         if ($row === null) {
             exit("Order was not created.");
         }
-        $OrderID = $row['newOrderID'];
+        $orderID = $row['newOrderID'];
 
-
-
+        //Insert products from shopping cart to orders
+        $query = "INSERT INTO orderdetails (OrderID, ProductsID, Price, Quantity) VALUES (?, ?, ?, ?)";
+        $preparedStatement = $dbConnection->prepare($query);
+        if ($preparedStatement === false) {
+            exit("Failed to prepare statement for insertion.");
+        }
+        while ($row = $cartProducts->fetch_assoc()) {
+            $productID = $row['ProductID'];
+            $quantity = $row['Quantity'];
+            $price = $row['Price'];
+            $preparedStatement->bind_param("iiii", $orderID, $productID, $price, $quantity);
+            if (!$preparedStatement->execute()) {
+                exit("Insertion failed: " . $preparedStatement->error);
+            }
+        }
 
         $preparedStatement->close();
         $dbConnection->close();
