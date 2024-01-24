@@ -415,3 +415,8 @@ body{
     flex-direction: column;
     width: 80%;
 }
+
+#productSCP {
+    display: flex;
+    flex-direction: row;
+}
