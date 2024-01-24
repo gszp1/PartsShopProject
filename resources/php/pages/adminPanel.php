@@ -30,7 +30,10 @@
             </table>
         </div>
         <script>
-            loadOrdersTable();
+            $(document).ready(function() {
+                loadOrdersTable();
+                handleOrderStatusClick();
+            });
         </script>
     </body>
 </html>

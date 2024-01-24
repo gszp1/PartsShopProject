@@ -184,7 +184,7 @@ function loadOrdersTable() {
 
 function handleOrderStatusClick() {
     // Handle click events on OrderStatus cells
-    $('#orderTableBody').on('click', 'td[data-type="orderStatus"]', function() {
+    $('#OrdersTableBody').on('click', 'td[data-type="orderStatus"]', function() {
         let orderId = $(this).closest('tr').find('td[data-type="orderId"]').text();
         let currentStatus = $(this).text();
 
