@@ -32,7 +32,7 @@ $(document).ready(function () {
             var removeButton = $('<button>');
             removeButton.text('Remove');
             removeButton.click(function () {
-                removeProduct(product.id, userID);
+                removeProduct(product.id, product.userID);
             });
 
             productBox.append(removeButton);
@@ -45,11 +45,11 @@ $(document).ready(function () {
         $.ajax({
             url: './../php/scripts/removeProductFromShoppingCart.php', // You need to create this file
             type: 'POST',
-            data: { id: productId,
+            data: { productID: productId,
                     userID: userId
                   },
             success: function () {
-                loadProducts(); // Reload products after removal
+                loadProducts(userId); // Reload products after removal
             },
             error: function () {
                 console.error('Error removing product');

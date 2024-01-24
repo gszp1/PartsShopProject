@@ -8,5 +8,8 @@
             exit("Failed to connect with database.");
         }
 
-        $query = "DELETE "
+        $query = "DELETE * FROM shoppincart WHERE ProductID=?, CustomerID=?";
+        $userID = mysqli_real_escape_string($dbConnection, $_POST['userID']);
+        $productID = mysqli_real_escape_string($dbConnection, $_POST['$productID']);
+
     }
