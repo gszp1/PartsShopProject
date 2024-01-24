@@ -10,12 +10,7 @@
     <body>
         <nav class="navbarNew">
             <a id="shopLogoNavbarI" href="./../../../index.php">Part Shop</a>
-            <div id="searchbarNavbarWrapperI">
-                <form id="searchBarI">
-                    <input id="searchBarInputI" type="text" id="productName" name=productName><br>
-                </form>
-                <button id="searchButtonI">Search</button>
-            </div>
+            <div id="searchbarNavbarWrapperI"></div>
             <button onclick="goToPage('userAccountPage.php')" id="loginButtonI">Your account</button>
             <button onclick="goToPage('shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
