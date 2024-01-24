@@ -20,9 +20,9 @@
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
             echo "<td data-type='orderId'>" . $row['OrderID'] . "</td>";
-            echo "<td>" . $row['ClientID'] . "</td>";
-            echo "<td>" . $row['ClientEmail'] . "</td>";
-            echo "<td data-type='orderStatus'>" . $row['OrderStatus'] . "</td>";
+            echo "<td>" . $row['CustomerID'] . "</td>";
+            echo "<td>" . $row['Email'] . "</td>";
+            echo "<td data-type='orderStatus'>" . $row['Status'] . "</td>";
             echo "</tr>";
         }
 
