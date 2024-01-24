@@ -414,10 +414,14 @@ body{
     display: flex;
     flex-direction: column;
     width: 80%;
+    overflow: auto;
+    background-color: #ACABAB;
 }
 
 .productBoxSCP {
     display: flex;
     flex-direction: row;
+    height: 10rem;
+    width: 80%;
 }
 

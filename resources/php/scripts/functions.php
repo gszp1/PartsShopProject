@@ -30,7 +30,7 @@
                 $productName = $row["ProductName"];
                 $manufacturerName = $row["ManufacturerName"];
                 $price = $row["Price"];
-                $pic = $row["Picture"];
+                $pic = '.' . $row["Picture"];
                 $productID = $row["ProductID"];
                 $quantity = 1;
                 $userID = -1;
