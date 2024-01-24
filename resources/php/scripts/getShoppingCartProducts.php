@@ -31,10 +31,10 @@
         while ($preparedStatement->fetch()) {
             $products[] = array(
                 'userID' => $userID,
-                'Picture' => $picture,
-                'ProductName' => $productName,
-                'Quantity' => $quantity,
-                'Price' => $price
+                'picture' => $picture,
+                'productName' => $productName,
+                'quantity' => $quantity,
+                'price' => $price
             );
         }
 

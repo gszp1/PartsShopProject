@@ -416,7 +416,8 @@ body{
     width: 80%;
 }
 
-#productSCP {
+.productBoxSCP {
     display: flex;
     flex-direction: row;
 }
+
