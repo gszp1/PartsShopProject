@@ -50,14 +50,23 @@ function displayProducts(products) {
         console.error("Error parsing JSON:", error);
         return;
     }
+
+    var totalCost = 0;
+
     var cartContainer = $('#productListSCP');
+    var statusBar = $('#statusBarSCP');
+
     cartContainer.empty();
+    statusBar.empty();
 
     data.forEach(function (product) {
         var productBox = $('<div class="productBoxSCP">');
         var picturePath = "./../../.." + product.picture;
         var quantity = parseFloat(product.quantity);
         var price = parseFloat(product.price);
+
+        totalCost += price * quantity;
+
         productBox.append('<img src=' + picturePath + ' alt="Product Image">');
         productBox.append('<span>' + product.productName + '</span>');
         productBox.append('<span>Quantity: ' + quantity + '</span>');
@@ -76,6 +85,18 @@ function displayProducts(products) {
         productBox.append(removeButton);
         cartContainer.append(productBox);
     });
+
+    var totalCostBar = $('<div id="totalCostBar">');
+    totalCostBar.text('Total Cost: $' + totalCost.toFixed(2));
+    var createOrderButton = $('<button id="createOrderButton">');
+    createOrderButton.text('Create Order');
+    createOrderButton.click(function () {
+        // Call a function to handle order creation
+        createOrder();
+    });
+
+    statusBar.append(totalCostBar);
+    statusBar.append(createOrderButton);
 }
 
 // Function to remove a product from the server and update the display
