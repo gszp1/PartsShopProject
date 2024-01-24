@@ -174,7 +174,7 @@ function clearCart(userId) {
 
 function loadOrdersTable() {
     $.ajax({
-        url: '',
+        url: './../scripts/getOrdersData.php',
         type: 'POST',
         success: function(response) {
             $('#orderTableBody').html(response);
