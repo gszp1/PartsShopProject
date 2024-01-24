@@ -99,7 +99,7 @@ function displayProducts(products) {
     createOrderButton.text('Create Order');
     createOrderButton.click(function () {
         // Call a function to handle order creation
-        createOrder(userID);
+        addOrder(userID);
     });
 
     var clearCartButton = $('<button id="clearCartButton">');
