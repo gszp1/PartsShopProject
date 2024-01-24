@@ -446,7 +446,6 @@ body{
     height: 80%;
 }
 
-/* Set the image width to 100% of the container */
 .imageContainerSCP img {
     width: 100%;
 }
@@ -478,4 +477,20 @@ body{
     cursor: pointer;
 }
 
+/* Admin Panel */
 
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
