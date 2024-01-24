@@ -102,8 +102,15 @@ function displayProducts(products) {
         createOrder(userID);
     });
 
+    var clearCartButton = $('<button id="clearCartButton">');
+    clearCartButton.text('Clear Cart');
+    clearCartButton.click(function () {
+        // Call a function to handle order creation
+        clearCart(userID);
+    });
     statusBar.append(totalCostBar);
     statusBar.append(createOrderButton);
+    statusBar.append(clearCartButton);
 }
 
 // Function to remove a product from the server and update the display
@@ -128,15 +135,31 @@ function removeProduct(productId, userId) {
 function addOrder(userId) {
     $.ajax({
         type: 'POST',
-        url: './../scripts/createOrder.php',
+        url: './../scripts/clearShoppingCart.php',
         data: {
             userID: userId
         },
         success: function() {
-
+            clearCart(userId);
         },
         error: function() {
             console.error('Error placing order.');
+        }
+    });
+}
+
+function clearCart(userId) {
+    $.ajax({
+        type: 'POST',
+        url: './../scripts/clearShoppingCart.php',
+        data: {
+            userID: userId
+        },
+        success: function() {
+            loadProducts(userId);
+        },
+        error: function() {
+            console.error('Error clearing cart.');
         }
     });
 }
