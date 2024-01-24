@@ -40,18 +40,26 @@ function loadProducts(userId) {
 
 // Function to display products in the HTML
 function displayProducts(products) {
-    var data = JSON.parse(products);
+    var data;
+    try {
+        data = JSON.parse(products);
+    } catch (error) {
+        console.error("Error parsing JSON:", error);
+        return;
+    }
     var cartContainer = $('#productListSCP');
     cartContainer.empty();
 
     data.forEach(function (product) {
         var productBox = $('<div class="productBoxSCP">');
-        var picturePath = "./../assets/images/GPU/" + product.picture;
+        var picturePath = "./../../.." + product.picture;
+        var quantity = parseFloat(product.quantity);
+        var price = parseFloat(product.price);
         productBox.append('<img src=' + picturePath + ' alt="Product Image">');
         productBox.append('<span>' + product.name + '</span>');
-        productBox.append('<span>Quantity: ' + product.quantity + '</span>');
-        productBox.append('<span>Unit Price: $' + product.price.toFixed(2) + '</span>');
-        productBox.append('<span>Total Price: $' + (product.quantity * product.price).toFixed(2) + '</span>');
+        productBox.append('<span>Quantity: ' + quantity + '</span>');
+        productBox.append('<span>Unit Price: $' + price.toFixed(2) + '</span>');
+        productBox.append('<span>Total Price: $' + (quantity * price).toFixed(2) + '</span>');
 
         // Add a button to remove the product
         var removeButton = $('<button>');
