@@ -68,7 +68,7 @@
             if ($preparedStatement === false) {
                 exit("Error in preparing the statement.");
             }
-            $preparedStatement->bind_param("ii", $customerID, $productID);
+            $preparedStatement->bind_param("ii", $productID, $customerID);
             $preparedStatement->execute();
             if ($result === false) {
                 $preparedStatement->close();
