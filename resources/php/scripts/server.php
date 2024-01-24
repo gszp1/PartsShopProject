@@ -4,9 +4,8 @@
     $username = "";
     $email = "";
     $errors = array();
-    $dbConnection = mysqli_connect('localhost', 'dbclient', 'ar0220', 'partshopdb');
-
-    if ($dbConnection == false) {
+    $dbConnection = connect_with_database();
+    if ($dbConnection == null) {
         die('Failed to connect to database'. mysqli_connect_error());
     }
 
@@ -45,7 +44,7 @@
             $preparedStatement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");
             $preparedStatement->bind_param("sss", $email, $username, $passwordHash);
             $preparedStatement->execute();
-            header('location: loginPage.php');
+            header('location: ./../pages/loginPage.php');
             exit();
         }
     }
@@ -67,7 +66,7 @@
 
             if (mysqli_num_rows($results) == 1) {
                 $_SESSION['userID'] = mysqli_fetch_assoc($results)['CustomerID'];
-                $gotoPage = '/../index.php';
+                $gotoPage = './../../../index.php';
                 if (isset($_SESSION['previousPage']) == true) {
                     $gotoPage = $_SESSION['previousPage'];
                 }
@@ -77,7 +76,7 @@
                 $query = "SELECT * FROM admin WHERE email='$email' AND password='$passwordHash'";
                 $results = mysqli_query($dbConnection, $query);
                 if (mysqli_num_rows($results) == 1) {
-                    header("Location: adminPanel.php");
+                    header("Location: ./../pages/adminPanel.php");
                     exit();
                 } else {
                     array_push($errors,"Provided credentials are incorrect.");
@@ -85,4 +84,3 @@
             }
         }
     }
-?>

@@ -1,5 +1,5 @@
 <?php
-    include("server.php");
+    include("./../scripts/server.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login page</title>
-        <link rel="stylesheet" href="../css/styles.css">
-        <script src="../js/script.js"></script>
+        <link rel="stylesheet" href="/resources/css/styles.css">
+        <script src="./../../js/script.js"></script>
     </head>
     <body style="justify-content: center;">
         <div id="loginBoxLP">
@@ -27,7 +27,7 @@
             </form>
         </div>
         <?php
-            include("errors.php");
+            include("./../misc/errors.php");
         ?>
     </body>
 </html>

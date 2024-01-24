@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 19, 2024 at 11:03 PM
+-- Generation Time: Sty 23, 2024 at 03:31 AM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -98,8 +98,7 @@ CREATE TABLE `orderdetails` (
   `OrderID` bigint(20) NOT NULL,
   `ProductsID` bigint(20) NOT NULL,
   `Price` decimal(10,2) NOT NULL,
-  `Quantity` int(11) NOT NULL,
-  `Discount` decimal(10,2) NOT NULL
+  `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -111,14 +110,7 @@ CREATE TABLE `orderdetails` (
 CREATE TABLE `orders` (
   `OrderID` bigint(20) NOT NULL,
   `CustomerID` bigint(20) NOT NULL,
-  `OrderDate` datetime NOT NULL,
-  `ShipDate` datetime NOT NULL,
-  `RequiredDate` datetime NOT NULL,
-  `ShipAddress` varchar(50) NOT NULL,
-  `ShipRegion` varchar(50) NOT NULL,
-  `ShipCountry` varchar(50) NOT NULL,
-  `ShipCity` varchar(50) NOT NULL,
-  `ShipPostalCode` varchar(7) NOT NULL
+  `Status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------

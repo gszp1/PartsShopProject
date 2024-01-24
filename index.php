@@ -1,5 +1,5 @@
-<?php 
-    include("./resources/php/functions.php");
+<?php
+    include("./resources/php/scripts/functions.php");
     session_start();
 ?>
 
@@ -9,6 +9,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PartShop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="./resources/js/script.js"></script>
         <link rel="stylesheet" href="./resources/css/styles.css">
     </head>
     <body>
@@ -16,12 +18,12 @@
             <a id="shopLogoNavbarI" href="index.php">Part Shop</a>
             <div id="searchbarNavbarWrapperI">
                 <form id="searchBarI">
-                    <input id="searchBarInputI" type="text" id="productName" name=productName><br>
+                    <input id="searchBarInputI" type="text" name=productName><br>
                 </form>
                 <button id="searchButtonI">Search</button>
             </div>
-            <button onclick="goToPage('./resources/php/userAccountPage.php')" id="loginButtonI">Your account</button>
-            <button onclick="goToPage('./resources/php/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
+            <button onclick="goToPage('./resources/php/pages/userAccountPage.php')" id="loginButtonI">Your account</button>
+            <button onclick="goToPage('./resources/php/pages/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
             <ul id="productsListI">
@@ -30,6 +32,5 @@
                 ?>
             </ul>
         </div>
-        <script src="./resources/js/script.js"></script>
     </body>
 </html>
