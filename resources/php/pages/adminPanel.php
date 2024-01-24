@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Create Account</title>
         <link rel="stylesheet" href="./../../css/styles.css">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="./../scripts/functions.php"></script>
     </head>
     <body>
         <nav class="navbarNew">
@@ -15,7 +17,17 @@
             <button onclick="goToPage('shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
-
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Client ID</th>
+                        <th>Client Email</th>
+                        <th>Order Status</th>
+                    </tr>
+                </thead>
+                <tbody id="OrdersTableBody"></tbody>
+            </table>
         </div>
     </body>
 </html>
