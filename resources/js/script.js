@@ -171,3 +171,13 @@ function clearCart(userId) {
         }
     });
 }
+
+function loadOrdersTable() {
+    $.ajax({
+        url: '',
+        type: 'POST',
+        success: function(response) {
+            $('#orderTableBody').html(response);
+        }
+    });
+}
