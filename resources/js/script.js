@@ -69,8 +69,13 @@ function displayProducts(products) {
         var price = parseFloat(product.price);
 
         totalCost += price * quantity;
+        var imageContainer = $('<div class="imageContainerSCP">');
+        var productImage = $('<img>');
+        productImage.attr('src', picturePath);
+        productImage.attr('alt', 'Product Image');
+        imageContainer.append(productImage);
 
-        productBox.append('<img src=' + picturePath + ' alt="Product Image">');
+        productBox.append(imageContainer);
         productBox.append('<span>' + product.productName + '</span>');
         productBox.append('<span>Quantity: ' + quantity + '</span>');
         productBox.append('<span>Unit Price: $' + price.toFixed(2) + '</span>');
@@ -82,7 +87,7 @@ function displayProducts(products) {
         }
 
         // Add a button to remove the product
-        var removeButton = $('<button>');
+        var removeButton = $('<button class="RemoveButtonSCP">');
         removeButton.text('Remove');
         removeButton.click(function () {
             var pID = parseInt(product.productID);

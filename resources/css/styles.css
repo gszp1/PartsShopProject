@@ -405,29 +405,77 @@ body{
     align-items: center;
     justify-content: space-evenly;
     height: 5rem;
-    width: 100%;
+    width: calc(100% - 4px);
     background-color: #756C6C;
     border: 2px solid black;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 2rem;
 }
 
 #productListSCP {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90rem;
     overflow: auto;
+    margin: 0;
     background-color: #ACABAB;
+    padding-top: 1rem;
 }
 
 .productBoxSCP {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     height: 10rem;
     width: 80%;
+    border: 2px solid black;
+    margin-bottom: 1rem;
+    background-color: #CDCACA;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#totalCostBar {
-    height: 2.5rem;
-    width: 50%;
-    background-color: black;
-    color: white;
+.imageContainerSCP {
+    border: 1px solid #000;
+    overflow: hidden;
+    width: 14%;
+    height: 80%;
 }
+
+/* Set the image width to 100% of the container */
+.imageContainerSCP img {
+    width: 100%;
+}
+
+.RemoveButtonSCP {
+    background-color: #F07014;
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 4rem;
+    width: 10rem;
+    cursor: pointer;
+}
+
+#clearCartButton {
+    background-color: #F07014;
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 4rem;
+    width: 10rem;
+    cursor: pointer;
+}
+
+#createOrderButton {
+    background-color: #4094F5;
+    border: 2px solid black;
+    border-radius: 1rem;
+    height: 4rem;
+    width: 10rem;
+    cursor: pointer;
+}
+
+
