@@ -181,3 +181,31 @@ function loadOrdersTable() {
         }
     });
 }
+
+function handleOrderStatusClick() {
+    // Handle click events on OrderStatus cells
+    $('#orderTableBody').on('click', 'td[data-type="orderStatus"]', function() {
+        let orderId = $(this).closest('tr').find('td[data-type="orderId"]').text();
+        let currentStatus = $(this).text();
+
+        // Display a dropdown for updating OrderStatus
+        let dropdown = '<select id="statusDropdown">';
+        dropdown += '<option value="0">Not Accepted</option>';
+        dropdown += '<option value="1">Accepted</option>';
+        dropdown += '<option value="2">Archived</option>';
+        dropdown += '</select>';
+
+        $(this).html(dropdown);
+
+        // Set the current status as selected in the dropdown
+        $('#statusDropdown').val(currentStatus);
+
+        // Handle change event on the dropdown
+        $('#statusDropdown').on('change', function() {
+            let newStatus = $(this).val();
+
+            // Update the database with the new OrderStatus
+            updateOrderStatus(orderId, newStatus);
+        });
+    });
+}
