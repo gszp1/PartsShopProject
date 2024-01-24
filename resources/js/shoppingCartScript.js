@@ -1,8 +1,8 @@
 // Function to load products from the server and display them
 function loadProducts(userID) {
     $.ajax({
-        url: './../php/scripts/getShoppingCartProducts.php',
         type: 'POST',
+        url: './../php/scripts/getShoppingCartProducts.php',
         data: {userID: userID},
         dataType: 'json',
         success: function (data) {
