@@ -34,8 +34,12 @@
             <div id="productListSCP"></div>
             <div id="statusBarSCP"></div>
         </div>
-        <script>
-            loadProducts($_SESSION('userID'));
-        </script>
+        <?php
+            $uID = $_SESSION['userID'];
+            echo '<script>';
+            echo "var userID = '$uID';";
+            echo 'loadProducts(userID);';
+            echo '</script>';
+        ?>
     </body>
 </html>
