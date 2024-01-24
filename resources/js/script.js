@@ -78,6 +78,7 @@ function displayProducts(products) {
 
         if (flag == 0) {
             userID = parseInt(product.userID);
+            flag = 1;
         }
 
         // Add a button to remove the product
@@ -99,6 +100,8 @@ function displayProducts(products) {
     createOrderButton.text('Create Order');
     createOrderButton.click(function () {
         // Call a function to handle order creation
+        console.log('Placing order.');
+        console.log(userID);
         addOrder(userID);
     });
 
@@ -135,7 +138,7 @@ function removeProduct(productId, userId) {
 function addOrder(userId) {
     $.ajax({
         type: 'POST',
-        url: './../scripts/clearShoppingCart.php',
+        url: './../scripts/createOrder.php',
         data: {
             userID: userId
         },
