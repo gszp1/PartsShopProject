@@ -1,9 +1,10 @@
 $(document).ready(function () {
     // Function to load products from the server and display them
-    function loadProducts() {
+    function loadProducts(userID) {
         $.ajax({
-            url: 'get_products.php',
-            type: 'GET',
+            url: './../php/scripts/getShoppingCartProducts.php',
+            type: 'POST',
+            data: {userID: userID},
             dataType: 'json',
             success: function (data) {
                 displayProducts(data);
@@ -26,12 +27,12 @@ $(document).ready(function () {
             productBox.append('<span>Quantity: ' + product.quantity + '</span>');
             productBox.append('<span>Unit Price: $' + product.price.toFixed(2) + '</span>');
             productBox.append('<span>Total Price: $' + (product.quantity * product.price).toFixed(2) + '</span>');
-            
+
             // Add a button to remove the product
             var removeButton = $('<button>');
             removeButton.text('Remove');
             removeButton.click(function () {
-                removeProduct(product.id);
+                removeProduct(product.id, userID);
             });
 
             productBox.append(removeButton);
@@ -40,11 +41,13 @@ $(document).ready(function () {
     }
 
     // Function to remove a product from the server and update the display
-    function removeProduct(productId) {
+    function removeProduct(productId, userId) {
         $.ajax({
-            url: 'remove_product.php', // You need to create this file
+            url: './../php/scripts/removeProductFromShoppingCart.php', // You need to create this file
             type: 'POST',
-            data: { id: productId },
+            data: { id: productId,
+                    userID: userId
+                  },
             success: function () {
                 loadProducts(); // Reload products after removal
             },

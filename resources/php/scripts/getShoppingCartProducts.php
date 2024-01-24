@@ -21,7 +21,7 @@
         if (!$preparedStatement->execute()) {
             exit("Execution failed: " . $preparedStatement->error);
         }
-    
+
 
         // Bind the result variables
         $preparedStatement->bind_result($picture, $productName, $quantity, $price);
@@ -30,6 +30,7 @@
         $products = array();
         while ($preparedStatement->fetch()) {
             $products[] = array(
+                'userID' => $userID,
                 'Picture' => $picture,
                 'ProductName' => $productName,
                 'Quantity' => $quantity,
