@@ -177,7 +177,7 @@ function loadOrdersTable() {
         url: './../scripts/getOrdersData.php',
         type: 'POST',
         success: function(response) {
-            $('#orderTableBody').html(response);
+            $('#OrdersTableBody').html(response);
         }
     });
 }

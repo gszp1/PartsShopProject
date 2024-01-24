@@ -7,7 +7,7 @@
         <title>Create Account</title>
         <link rel="stylesheet" href="./../../css/styles.css">
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="./../scripts/functions.php"></script>
+        <script src="./../../js/script.js"></script>
     </head>
     <body>
         <nav class="navbarNew">
@@ -29,5 +29,8 @@
                 <tbody id="OrdersTableBody"></tbody>
             </table>
         </div>
+        <script>
+            loadOrdersTable();
+        </script>
     </body>
 </html>
