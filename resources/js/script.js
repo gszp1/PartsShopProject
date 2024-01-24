@@ -116,3 +116,20 @@ function removeProduct(productId, userId) {
         }
     });
 }
+
+// Function to add order using products from shopping cart
+function addOrder(userId) {
+    $.ajax({
+        type: 'POST',
+        url: './../scripts/createOrder.php',
+        data: {
+            userID: userId
+        },
+        success: function() {
+
+        },
+        error: function() {
+            console.error('Error placing order.');
+        }
+    });
+}
