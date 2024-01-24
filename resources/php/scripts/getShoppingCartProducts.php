@@ -9,7 +9,7 @@
         }
 
         $userID = mysqli_real_escape_string($dbConnection, $_POST['userID']);
-        $query = "SELECT p.Picture, p.ProductName, s.Quantity, s.Price " .
+        $query = "SELECT p.ProductID, p.Picture, p.ProductName, s.Quantity, s.Price " .
                  "FROM products as p " .
                  "INNER JOIN shoppingcart as s ON p.ProductID = s.ProductID " .
                  "WHERE s.CustomerID = ?";
@@ -24,12 +24,13 @@
 
 
         // Bind the result variables
-        $preparedStatement->bind_result($picture, $productName, $quantity, $price);
+        $preparedStatement->bind_result($productID, $picture, $productName, $quantity, $price);
 
         // Fetch the data into an array
         $products = array();
         while ($preparedStatement->fetch()) {
             $products[] = array(
+                'productID' => $productID,
                 'userID' => $userID,
                 'picture' => $picture,
                 'productName' => $productName,

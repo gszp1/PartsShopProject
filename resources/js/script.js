@@ -25,9 +25,11 @@ function addToCart(productID, customerID, quantity, price) {
 }
 
 function loadProducts(userId) {
+    console.log("load:");
+    console.log(userId);
     $.ajax({
         type: 'POST',
-        url: './../../php/scripts/getShoppingCartProducts.php',
+        url: './../scripts/getShoppingCartProducts.php',
         data: { userID: userId },
         success: function (data) {
             displayProducts(data);
@@ -40,6 +42,7 @@ function loadProducts(userId) {
 
 // Function to display products in the HTML
 function displayProducts(products) {
+    console.log(products);
     var data;
     try {
         data = JSON.parse(products);
@@ -56,7 +59,7 @@ function displayProducts(products) {
         var quantity = parseFloat(product.quantity);
         var price = parseFloat(product.price);
         productBox.append('<img src=' + picturePath + ' alt="Product Image">');
-        productBox.append('<span>' + product.name + '</span>');
+        productBox.append('<span>' + product.productName + '</span>');
         productBox.append('<span>Quantity: ' + quantity + '</span>');
         productBox.append('<span>Unit Price: $' + price.toFixed(2) + '</span>');
         productBox.append('<span>Total Price: $' + (quantity * price).toFixed(2) + '</span>');
@@ -65,7 +68,9 @@ function displayProducts(products) {
         var removeButton = $('<button>');
         removeButton.text('Remove');
         removeButton.click(function () {
-            removeProduct(product.id, product.userID);
+            var pID = parseInt(product.productID);
+            var uID = parseInt(product.userID);
+            removeProduct(pID, uID);
         });
 
         productBox.append(removeButton);
@@ -76,13 +81,14 @@ function displayProducts(products) {
 // Function to remove a product from the server and update the display
 function removeProduct(productId, userId) {
     $.ajax({
-        url: './../php/scripts/removeProductFromShoppingCart.php', // You need to create this file
         type: 'POST',
+        url: './../scripts/removeProductFromShoppingCart.php',
         data: { productID: productId,
                 userID: userId
                 },
         success: function () {
-            loadProducts(userId); // Reload products after removal
+            console.log(userId);
+            loadProducts(userId);
         },
         error: function () {
             console.error('Error removing product');
