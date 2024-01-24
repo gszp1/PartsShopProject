@@ -32,11 +32,7 @@
         </nav>
         <div class="pageContents">
             <div id="productListSCP"></div>
-            <div id="statusBarSCP">
-                <?php
-                    show_user_shoppingCart($_SESSION["userID"]);
-                ?>
-            </div>
+            <div id="statusBarSCP"></div>
         </div>
         <script>
             loadProducts($_SESSION('userID'));
