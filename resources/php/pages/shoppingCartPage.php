@@ -27,8 +27,8 @@
                 </form>
                 <button id="searchButtonI">Search</button>
             </div>
-            <button onclick="goToPage('./../php/pages/userAccountPage.php')" id="loginButtonI">Your account</button>
-            <button onclick="goToPage('./../pages/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
+            <button onclick="goToPage('userAccountPage.php')" id="loginButtonI">Your account</button>
+            <button onclick="goToPage('shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
             <div id="productListSCP"></div>
