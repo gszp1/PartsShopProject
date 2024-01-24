@@ -32,6 +32,9 @@
         }
         $result = $preparedStatement->get_result();
         $row = $result->fetch_assoc();
+        if ($row === null) {
+            exit("Order was not created.");
+        }
         $OrderID = $row['newOrderID'];
         
 
