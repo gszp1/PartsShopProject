@@ -327,3 +327,15 @@ function addProductButtonInit() {
         addProduct();
     });
 }
+
+function addProductFieldsClean() {
+    $("input[name='addCategoryID']").val('0');
+    $("input[name='addSupplierID']").val('0');
+    $("input[name='addManufacturerID']").val('0');
+    $("input[name='addProductName']").val('');
+    $("input[name='addPrice']").val('0');
+    $("input[name='addUnitsInStock']").val('0');
+    $("input[name='addOrderedUnits']").val('0');
+    $("input[name='addPicture']").val('');
+    $("input[name='addDiscontinued']").val('0');
+}
