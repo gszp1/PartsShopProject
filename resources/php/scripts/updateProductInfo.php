@@ -10,9 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit("Database connection failure.");
     }
 
-    $query = "UPDATE products(CategoryID, SupplierID, ManufacturerID, ProductName, " .
-             "Price, UnitsInStock, OrderedUnits, Picture, Discontinued) SET VALUES " .
-             "(?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE ProductID = ?";
+    $query = "UPDATE products SET CategoryID=?, SupplierID=?, ManufacturerID=?, ProductName=?, " .
+             "Price=?, UnitsInStock=?, OrderedUnits=?, Picture=?, Discontinued=? WHERE ProductID=?";
     $preparedStatement = $dbConnection->prepare($query);
     if (!$preparedStatement) {
         exit("Prepare statement error: " . $dbConnection->error);
@@ -27,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orderedUnits = mysqli_real_escape_string($dbConnection, $_POST['orderedUnits']);
     $picture = mysqli_real_escape_string($dbConnection, $_POST['picture']);
     $discontinued = mysqli_real_escape_string($dbConnection, $_POST['discontinued']);
-    $preparedStatement->bind_param("iiiisfiisi", $categoryID, $supplierID, $manufacturerID, $productName, $productPrice,
+    $preparedStatement->bind_param("iiiisdiisi", $categoryID, $supplierID, $manufacturerID, $productName, $productPrice,
                                     $unitInStock, $orderedUnits, $picture, $discontinued, $productID);
     $preparedStatement->execute();
     if ($preparedStatement->error) {
