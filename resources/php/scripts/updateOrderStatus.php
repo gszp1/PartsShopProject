@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orderID = $_POST['orderID'];
     $status = $_POST['status'];
 
-    // Assuming that OrderID and Status are integers in the database, you don't need to escape them
     $preparedStatement->bind_param("ii", $status, $orderID);
     $preparedStatement->execute();
 

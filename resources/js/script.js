@@ -178,6 +178,9 @@ function loadOrdersTable() {
         type: 'POST',
         success: function(response) {
             $('#OrdersTableBody').html(response);
+            $('#OrdersTableBody td[data-type="orderStatus"]:not(.editing)').each(function() {
+                initializeDropdown($(this));
+            });
         }
     });
 }
@@ -196,30 +199,31 @@ function updateOrderStatus(orderId, newStatus) {
     });
 }
 
+function initializeDropdown(cell) {
+    let currentStatus = cell.text();
+    let dropdown = '<select class="statusDropdown">';
+    dropdown += '<option value="0">Not Accepted</option>';
+    dropdown += '<option value="1">Accepted</option>';
+    dropdown += '<option value="2">Archived</option>';
+    dropdown += '</select>';
+
+    // Set the current status as selected in the dropdown
+    dropdown = dropdown.replace('value="' + currentStatus + '"', 'value="' + currentStatus + '" selected');
+
+    // Update the content of the cell
+    cell.html(dropdown).addClass('editing');
+}
+
 function handleOrderStatusClick() {
     // Handle click events on OrderStatus cells
-    $('#OrdersTableBody').on('click', 'td[data-type="orderStatus"]', function() {
+    $('#OrdersTableBody').on('change', '.statusDropdown', function() {
         let orderId = $(this).closest('tr').find('td[data-type="orderId"]').text();
-        let currentStatus = $(this).text();
+        let newStatus = $(this).val();
 
-        // Display a dropdown for updating OrderStatus
-        let dropdown = '<select id="statusDropdown">';
-        dropdown += '<option value="0">Not Accepted</option>';
-        dropdown += '<option value="1">Accepted</option>';
-        dropdown += '<option value="2">Archived</option>';
-        dropdown += '</select>';
+        // Update the database with the new OrderStatus
+        updateOrderStatus(orderId, newStatus);
 
-        $(this).html(dropdown);
-
-        // Set the current status as selected in the dropdown
-        $('#statusDropdown').val(currentStatus);
-
-        // Handle change event on the dropdown
-        $('#statusDropdown').on('change', function() {
-            let newStatus = $(this).val();
-
-            // Update the database with the new OrderStatus
-            updateOrderStatus(orderId, newStatus);
-        });
+        // Reload the data after successful update
+        loadOrdersTable();
     });
 }
