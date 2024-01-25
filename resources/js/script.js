@@ -278,8 +278,8 @@ function updateProductInformation() {
             picture: picture,
             discontinued: discontinued
         },
-        success: function(response) {
-            loadProductInfo();
+        success: function() {
+            loadProductDropdownOptions();
         }
     });
 }

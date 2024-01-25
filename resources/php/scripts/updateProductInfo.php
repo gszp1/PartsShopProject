@@ -20,13 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoryID = mysqli_real_escape_string($dbConnection, $_POST['categoryID']);
     $supplierID = mysqli_real_escape_string($dbConnection, $_POST['supplierID']);
     $manufacturerID = mysqli_real_escape_string($dbConnection, $_POST['manufacturerID']);
-    $productName = mysqli_real_escape_string($dbConnection, $_POST['productName']);
+    $productName = $_POST['productName'];
     $productPrice = mysqli_real_escape_string($dbConnection, $_POST['productPrice']);
     $unitInStock = mysqli_real_escape_string($dbConnection, $_POST['unitsInStock']);
     $orderedUnits = mysqli_real_escape_string($dbConnection, $_POST['orderedUnits']);
-    $picture = mysqli_real_escape_string($dbConnection, $_POST['picture']);
+    $picture = $_POST['picture'];
     $discontinued = mysqli_real_escape_string($dbConnection, $_POST['discontinued']);
-    $preparedStatement->bind_param("iiiisdiisi", $categoryID, $supplierID, $manufacturerID, $productName, $productPrice,
+    $preparedStatement->bind_param("iiisdiisii", $categoryID, $supplierID, $manufacturerID, $productName, $productPrice,
                                     $unitInStock, $orderedUnits, $picture, $discontinued, $productID);
     $preparedStatement->execute();
     if ($preparedStatement->error) {
