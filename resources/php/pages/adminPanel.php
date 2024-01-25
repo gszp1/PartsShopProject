@@ -30,7 +30,7 @@
             </table>
             <hr style="background-color: black; height: 2px; width: 100%; border: none;">
             <label for="productDropdown">Select a Product:</label>
-            <select name="productDropdown" id="productDropdown" onchange="loadProductInfo()">
+            <select name="productDropdown" id="productDropdown" onchange="loadProductInfo()"></select>
             <table id="productTable"></table>
         </div>
         <script>

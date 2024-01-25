@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "SELECT * FROM products WHERE ProductID = ?";
     $preparedStatement = $dbConnection->prepare($query);
-    $pID = $_POST['productID'];
+    $pID = $_POST['productId'];
     $preparedStatement->bind_param("i", $pID);
     // Execute the prepared statement
     $preparedStatement->execute();
