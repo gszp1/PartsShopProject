@@ -241,7 +241,7 @@ function loadProductDropdownOptions() {
 function loadProductInfo() {
     var productId = $("#productDropdown").val();
     $.ajax({
-        url: './../scripts/getProductsInfo.php',
+        url: './../scripts/getProductInfo.php',
         type: 'POST',
         data: { productId : productId },
         success: function(response) {

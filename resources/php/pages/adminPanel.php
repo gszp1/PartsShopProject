@@ -31,6 +31,7 @@
             <hr style="background-color: black; height: 2px; width: 100%; border: none;">
             <label for="productDropdown">Select a Product:</label>
             <select name="productDropdown" id="productDropdown" onchange="loadProductInfo()">
+            <table id="productTable"></table>
         </div>
         <script>
             $(document).ready(function() {
