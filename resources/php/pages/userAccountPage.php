@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="./../../css/styles.css">
         <script src="./../../js/script.js"></script>
     </head>
-    <body style="align-items:center; justify-content: center;">
+    <body>
         <nav class="navbarNew">
             <a id="shopLogoNavbarI" href="./../../../index.php">Part Shop</a>
             <div id="searchbarNavbarWrapperI"></div>
@@ -43,7 +43,6 @@
                     <div id="buttonsWrapperUAP">
                         <button class="buttonUAP" id="updateDataUAP" style="background-color: #4094F5">Update data</button>
                         <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
-                        <button class="buttonUAP" id="returnsButtonUAP" style="background-color: #4094F5">Returns</button>
                         <button onclick="goToPage('./../misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
                     </div>
                 </div>
