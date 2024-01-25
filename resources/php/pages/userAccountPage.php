@@ -38,7 +38,7 @@
                     </div>
                     <div id="buttonsWrapperUAP">
                         <button class="buttonUAP" id="updateDataUAP" style="background-color: #4094F5">Update data</button>
-                        <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
+                        <button onclick="goToPage('updateUserDataPage.php')" class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
                         <button onclick="goToPage('./../misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
                     </div>
                 </div>
