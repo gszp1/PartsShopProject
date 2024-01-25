@@ -317,3 +317,10 @@ function addProduct() {
         }
     });
 }
+
+function addProductButtonInit() {
+    $('#createProductForm').submit(function(event) {
+        event.preventDefault();
+        addProduct();
+    });
+}
