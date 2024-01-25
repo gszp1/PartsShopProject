@@ -237,3 +237,15 @@ function loadProductDropdownOptions() {
         }
     });
 }
+
+function loadProductInfo() {
+    var productId = $("#productDropdown").val();
+    $.ajax({
+        url: './../scripts/getProductsInfo.php',
+        type: 'POST',
+        data: { productId : productId },
+        success: function(response) {
+            $('#productTable').html(response);
+        }
+    });
+}
