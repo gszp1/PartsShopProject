@@ -227,3 +227,10 @@ function handleOrderStatusClick() {
         loadOrdersTable();
     });
 }
+
+function loadProductDropdownOptions() {
+    $.ajax({
+        url: "./../scripts/loadProductsNames.php",
+        
+    });
+}
