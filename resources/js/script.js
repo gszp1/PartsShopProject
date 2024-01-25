@@ -279,12 +279,7 @@ function updateProductInformation() {
             discontinued: discontinued
         },
         success: function(response) {
-            // Handle the success response from the server
-            console.log('Product updated successfully:', response);
-        },
-        error: function(error) {
-            // Handle the error response from the server
-            console.error('Error updating product:', error);
+            loadProductInfo();
         }
     });
 }
