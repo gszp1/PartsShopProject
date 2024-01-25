@@ -230,7 +230,10 @@ function handleOrderStatusClick() {
 
 function loadProductDropdownOptions() {
     $.ajax({
-        url: "./../scripts/loadProductsNames.php",
-        
+        url: './../scripts/loadProductsNames.php',
+        type: 'POST',
+        success: function(response) {
+            $('#productDropdown').html(response);
+        }
     });
 }

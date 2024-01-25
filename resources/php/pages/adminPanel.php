@@ -36,6 +36,7 @@
             $(document).ready(function() {
                 loadOrdersTable();
                 handleOrderStatusClick();
+                loadProductDropdownOptions()
             });
         </script>
     </body>
