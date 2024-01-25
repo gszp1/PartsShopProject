@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $productInfo .= "<tr><td>OrderedUnits</td><td><input type='text' name='OrderedUnits' value='$OrderedUnits'></td></tr>";
         $productInfo .= "<tr><td>Picture</td><td><input type='text' name='Picture' value='$Picture'></td></tr>";
         $productInfo .= "<tr><td>Discontinued</td><td><input type='text' name='Discontinued' value='$Discontinued'></td></tr>";
-        $productInfo .= "<tr><td colspan='2'><button type='submit'>Update Product</button></td></tr>";
         echo $productInfo;
     }
     $preparedStatement->close();
