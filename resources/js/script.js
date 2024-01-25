@@ -317,6 +317,10 @@ function addProduct() {
         },
         success: function() {
             loadProductDropdownOptions();
+            addProductFieldsClean()
+        },
+        error: function() {
+            addProductFieldsClean();
         }
     });
 }
