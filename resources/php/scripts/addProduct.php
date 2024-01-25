@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit("Database connection failure.");
     }
 
-    $query = "INSERT INTO products(CategoryID, SupplierID, ManufacturerID, ProductName " .
+    $query = "INSERT INTO products(CategoryID, SupplierID, ManufacturerID, ProductName, " .
              "Price, UnitsInStock, OrderedUnits, Picture, Discontinued) " .
              "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $preparedStatement = $dbConnection->prepare($query);
