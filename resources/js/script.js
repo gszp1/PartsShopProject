@@ -251,7 +251,6 @@ function loadProductInfo() {
 }
 
 function updateProductInformation() {
-
     var productId = $("#productDropdown").val();
     var categoryId = $("input[name='CategoryID']").val();
     var supplierId = $("input[name='SupplierID']").val();
@@ -288,5 +287,33 @@ function productUpdateButtonInit() {
     $('#UpdateProductForm').submit(function(event) {
         event.preventDefault();
         updateProductInformation();
+    });
+}
+
+function addProduct() {
+    var categoryId = $("input[name='addCategoryID']").val();
+    var supplierId = $("input[name='addSupplierID']").val();
+    var manufacturerId = $("input[name='addManufacturerID']").val();
+    var pName = $("input[name='addProductName']").val();
+    var price = $("input[name='addPrice']").val();
+    var unitsInStock = $("input[name='addUnitsInStock']").val();
+    var orderedUnits = $("input[name='addOrderedUnits']").val();
+    var picture = $("input[name='addPicture']").val();
+    var discontinued = $("input[name='addDiscontinued']").val();
+
+    $.ajax({
+        url: './../scripts/addProduct.php',
+        type: 'POST',
+        data: {
+            categoryID: categoryId,
+            supplierID: supplierId,
+            manufacturerID: manufacturerId,
+            productName: pName,
+            productPrice: price,
+            unitsInStock: unitsInStock,
+            orderedUnits: orderedUnits,
+            picture: picture,
+            discontinued: discontinued
+        }
     });
 }
