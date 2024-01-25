@@ -50,6 +50,13 @@
                 </table>
                 <button type="submit">Add product</button>
             </form>
+            <form id="uploadImageForm" enctype="multipart/form-data">
+                <label for="imageFile">Select an image:</label>
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+                <br>
+                <button type="submit">Upload Image</button>
+            </form>
+
         </div>
         <script>
             $(document).ready(function() {
