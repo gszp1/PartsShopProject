@@ -314,6 +314,9 @@ function addProduct() {
             orderedUnits: orderedUnits,
             picture: picture,
             discontinued: discontinued
+        },
+        success: function() {
+            loadProductDropdownOptions();
         }
     });
 }
