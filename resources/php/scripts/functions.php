@@ -83,23 +83,21 @@
             return;
         }
         $fieldOrder = ['Email', 'Username', 'Surname', 'Name', 'PhoneNumber'];
-
-        echo '<ul>';
+        echo '<table class="tableUAP" border="0">';
+        echo '<tr class="trUAP"><td class="tdHeaderUAP" colspan="2"><strong>Contact Data</strong></td></tr>';
         foreach ($fieldOrder as $field) {
-            echo '<li>';
-            echo '<strong>' . $field . '</strong><br>'; // Label on one line
-            echo '<span>'; // Use a <span> for styling purposes if needed
-
+            echo '<tr class="trUAP">';
+            echo '<td class="tdUAP"><strong>' . $field . ':</strong></td>';
+            echo '<td class="tdUAP">';
             if (isset($userData[$field])) {
                 echo htmlspecialchars($userData[$field]);
             } else {
                 echo '&nbsp;'; // Display empty space if the field is not present
             }
-
-            echo '</span>';
-            echo '</li>';
+            echo '</td>';
+            echo '</tr>';
         }
-        echo '</ul>';
+        echo '</table>';
     }
 
     function show_user_shoppingCart($userID) {

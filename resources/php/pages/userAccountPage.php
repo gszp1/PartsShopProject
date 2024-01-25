@@ -31,9 +31,6 @@
                 <div id="accountBodyBoxUAP">
                     <div id="userDataBoxWrapperUAP">
                         <div id="userDataUAP">
-                            <div id="userDataHeaderUAP">
-                                Contact data
-                            </div>
                             <?php
                                 create_user_data_list($_SESSION["userID"]);
                             ?>
