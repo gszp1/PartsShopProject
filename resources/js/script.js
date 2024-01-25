@@ -361,3 +361,10 @@ function uploadImage() {
         }
     });
 }
+
+function uploadImageFormInit() {
+    $('#uploadImageForm').submit(function(event) {
+        event.preventDefault();
+        uploadImage();
+    });
+}
