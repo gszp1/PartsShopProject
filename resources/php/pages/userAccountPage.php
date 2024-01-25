@@ -15,32 +15,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>User account</title>
         <link rel="stylesheet" href="./../../css/styles.css">
-
+        <script src="./../../js/script.js"></script>
     </head>
     <body style="align-items:center; justify-content: center;">
-        <div id="accountBoxUAP">
-            <div id="greetingUAP">
-                Your account
-            </div>
-            <div id="accountBodyBoxUAP">
-                <div id="userDataBoxWrapperUAP">
-                    <div id="userDataUAP">
-                        <div id="userDataHeaderUAP">
-                            Contact data
-                        </div>
-                        <?php
-                            create_user_data_list($_SESSION["userID"]);
-                        ?>
-                    </div>
+        <nav class="navbarNew">
+            <a id="shopLogoNavbarI" href="./../../../index.php">Part Shop</a>
+            <div id="searchbarNavbarWrapperI"></div>
+            <button onclick="goToPage('userAccountPage.php')" id="loginButtonI">Your account</button>
+            <button onclick="goToPage('shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
+        </nav>
+        <div class="pageContents">
+            <div id="accountBoxUAP">
+                <div id="greetingUAP">
+                    Your account
                 </div>
-                <div id="buttonsWrapperUAP">
-                    <button class="buttonUAP" id="updateDataUAP" style="background-color: #4094F5">Update data</button>
-                    <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
-                    <button class="buttonUAP" id="returnsButtonUAP" style="background-color: #4094F5">Returns</button>
-                    <button onclick="goToPage('./../misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
+                <div id="accountBodyBoxUAP">
+                    <div id="userDataBoxWrapperUAP">
+                        <div id="userDataUAP">
+                            <div id="userDataHeaderUAP">
+                                Contact data
+                            </div>
+                            <?php
+                                create_user_data_list($_SESSION["userID"]);
+                            ?>
+                        </div>
+                    </div>
+                    <div id="buttonsWrapperUAP">
+                        <button class="buttonUAP" id="updateDataUAP" style="background-color: #4094F5">Update data</button>
+                        <button class="buttonUAP" id="ordersButtonUAP" style="background-color: #4094F5">Orders</button>
+                        <button class="buttonUAP" id="returnsButtonUAP" style="background-color: #4094F5">Returns</button>
+                        <button onclick="goToPage('./../misc/sessionDestructor.php')" class="buttonUAP" id="logoutButtonUAP" style="background-color: #F07014">Logout</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <script src="./../../js/script.js"></script>
     </body>
 </html>
