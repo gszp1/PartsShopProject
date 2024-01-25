@@ -249,3 +249,14 @@ function loadProductInfo() {
         }
     });
 }
+
+function updateProductInformation() {
+    $.ajax({
+        url: './../scripts/updateProductInfo.php',
+        type: 'POST',
+        data: {
+            productID: productId,
+            
+        }
+    });
+}
