@@ -29,15 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Picture = $row['Picture'];
         $Discontinued = $row['Discontinued'];
 
-        $productInfo =  "<tr><td>CategoryID</td><td>$CategoryID</td></tr>";
-        $productInfo .= "<tr><td>SupplierID</td><td>$SupplierID</td></tr>";
-        $productInfo .= "<tr><td>ManufacturerID</td><td>$ManufacturerID</td></tr>";
-        $productInfo .= "<tr><td>ProductName</td><td>$ProductName</td></tr>";
-        $productInfo .= "<tr><td>Price</td><td>$Price</td></tr>";
-        $productInfo .= "<tr><td>UnitsInStock</td><td>$UnitsInStock</td></tr>";
-        $productInfo .= "<tr><td>OrderedUnits</td><td>$OrderedUnits</td></tr>";
-        $productInfo .= "<tr><td>Picture</td><td>$Picture</td></tr>";
-        $productInfo .= "<tr><td>Discontinued</td><td>$Discontinued</td></tr>";
+        $productInfo = "<tr><td>CategoryID</td><td><input type='text' name='SupplierID' value='$CategoryID'></td></tr>";
+        $productInfo .= "<tr><td>SupplierID</td><td><input type='text' name='SupplierID' value='$SupplierID'></td></tr>";
+        $productInfo .= "<tr><td>ManufacturerID</td><td><input type='text' name='ManufacturerID' value='$ManufacturerID'></td></tr>";
+        $productInfo .= "<tr><td>ProductName</td><td><input type='text' name='ProductName' value='$ProductName'></td></tr>";
+        $productInfo .= "<tr><td>Price</td><td><input type='text' name='Price' value='$Price'></td></tr>";
+        $productInfo .= "<tr><td>UnitsInStock</td><td><input type='text' name='UnitsInStock' value='$UnitsInStock'></td></tr>";
+        $productInfo .= "<tr><td>OrderedUnits</td><td><input type='text' name='OrderedUnits' value='$OrderedUnits'></td></tr>";
+        $productInfo .= "<tr><td>Picture</td><td><input type='text' name='Picture' value='$Picture'></td></tr>";
+        $productInfo .= "<tr><td>Discontinued</td><td><input type='text' name='Discontinued' value='$Discontinued'></td></tr>";
+        $productInfo .= "<tr><td colspan='2'><button type='submit'>Update Product</button></td></tr>";
         echo $productInfo;
     }
     $preparedStatement->close();
