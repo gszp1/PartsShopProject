@@ -251,12 +251,40 @@ function loadProductInfo() {
 }
 
 function updateProductInformation() {
+
+    var productId = $("#productDropdown").val();
+    var categoryId = $("input[name='CategoryID']").val();
+    var supplierId = $("input[name='SupplierID']").val();
+    var manufacturerId = $("input[name='ManufacturerID']").val();
+    var pName = $("input[name='ProductName']").val();
+    var price = $("input[name='Price']").val();
+    var unitsInStock = $("input[name='UnitsInStock']").val();
+    var orderedUnits = $("input[name='OrderedUnits']").val();
+    var picture = $("input[name='Picture']").val();
+    var discontinued = $("input[name='Discontinued']").val();
+
     $.ajax({
         url: './../scripts/updateProductInfo.php',
         type: 'POST',
         data: {
             productID: productId,
-            
+            categoryID: categoryId,
+            supplierID: supplierId,
+            manufacturerID: manufacturerId,
+            productName: pName,
+            productPrice: price,
+            unitsInStock: unitsInStock,
+            orderedUnits: orderedUnits,
+            picture: picture,
+            discontinued: discontinued
+        },
+        success: function(response) {
+            // Handle the success response from the server
+            console.log('Product updated successfully:', response);
+        },
+        error: function(error) {
+            // Handle the error response from the server
+            console.error('Error updating product:', error);
         }
     });
 }

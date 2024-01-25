@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $Picture = $row['Picture'];
         $Discontinued = $row['Discontinued'];
 
-        $productInfo = "<tr><td>CategoryID</td><td><input type='text' name='SupplierID' value='$CategoryID'></td></tr>";
+        $productInfo = "<tr><td>CategoryID</td><td><input type='text' name='CategoryID' value='$CategoryID'></td></tr>";
         $productInfo .= "<tr><td>SupplierID</td><td><input type='text' name='SupplierID' value='$SupplierID'></td></tr>";
         $productInfo .= "<tr><td>ManufacturerID</td><td><input type='text' name='ManufacturerID' value='$ManufacturerID'></td></tr>";
         $productInfo .= "<tr><td>ProductName</td><td><input type='text' name='ProductName' value='$ProductName'></td></tr>";
