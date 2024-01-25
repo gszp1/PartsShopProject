@@ -191,7 +191,7 @@ function updateOrderStatus(orderId, newStatus) {
             status : newStatus
         },
         success: function(response) {
-            loadData();
+            loadOrdersTable();
         }
     });
 }
