@@ -347,7 +347,7 @@ function addProductFieldsClean() {
 function uploadImage() {
     var formData = new FormData($('#uploadImageForm')[0]);
     $.ajax({
-        url: 'uploadImage.php',
+        url: './../scripts/uploadImage.php',
         type: 'POST',
         data: formData,
         contentType: false,

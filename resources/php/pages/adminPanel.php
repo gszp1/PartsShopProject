@@ -66,6 +66,7 @@
                 loadProductInfo();
                 productUpdateButtonInit();
                 addProductButtonInit();
+                uploadImageFormInit();
             });
         </script>
     </body>
