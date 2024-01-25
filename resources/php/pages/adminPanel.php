@@ -28,14 +28,14 @@
                 </thead>
                 <tbody id="OrdersTableBody"></tbody>
             </table>
-            <hr style="background-color: black; height: 2px; width: 100%; border: none;">
+            <!-- <hr style="background-color: black; height: 2px; width: 100%; border: none;"> -->
             <label for="productDropdown">Select a Product:</label>
             <select name="productDropdown" id="productDropdown" onchange="loadProductInfo()"></select>
             <form method="post", id="UpdateProductForm">
                 <table id="productTable"></table>
                 <button type="submit">Update Product</button>
             </form>
-            <hr style="background-color: black; height: 2px; width: 100%; border: none;">
+            <!-- <hr style="background-color: black; height: 2px; width: 100%; border: none;"> -->
             <form method="post", id="createProductForm">
                 <table id="createProductTable">
                     <tr><td>CategoryID</td><td><input type='text' name='AddCategoryID' value='0'></td></tr>
@@ -48,6 +48,7 @@
                     <tr><td>Picture</td><td><input type='text' name='AddPicture' value=''></td></tr>
                     <tr><td>Discontinued</td><td><input type='text' name='AddDiscontinued' value='0'></td></tr>
                 </table>
+                <button type="submit">Add product</button>
             </form>
         </div>
         <script>
