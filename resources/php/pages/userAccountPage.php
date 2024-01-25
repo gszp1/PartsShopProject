@@ -1,6 +1,5 @@
 <?php
     session_start();
-    // if user is not logged in redirect to loginPage.php
     if (isset($_SESSION["userID"]) == false) {
         $_SESSION["previousPage"] = $_SERVER["REQUEST_URI"];
         header("location: loginPage.php");

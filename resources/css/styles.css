@@ -323,15 +323,12 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 50%;
-    height: 60%;
-    max-width: 1024px;
-    max-height: 576px;
-    min-width: 640px;
-    min-height: 360px;
+    margin-top: 5rem;
+    width: 60rem;
+    height: 40rem;
     background-color: #CDCACA;
-    border: 2px solid black;
-    border-radius: 20px;
+    border: 0.15rem solid black;
+    border-radius: 2rem;
 }
 
 #greetingUAP {
