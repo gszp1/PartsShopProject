@@ -31,7 +31,7 @@
             <hr style="background-color: black; height: 2px; width: 100%; border: none;">
             <label for="productDropdown">Select a Product:</label>
             <select name="productDropdown" id="productDropdown" onchange="loadProductInfo()"></select>
-            <form method="post">
+            <form method="post", id="UpdateProductForm">
                 <table id="productTable"></table>
                 <button type="submit">Update Product</button>
             </form>
@@ -41,7 +41,7 @@
             $(document).ready(function() {
                 loadOrdersTable();
                 handleOrderStatusClick();
-                loadProductDropdownOptions()
+                loadProductDropdownOptions();
                 loadProductInfo();
             });
         </script>
