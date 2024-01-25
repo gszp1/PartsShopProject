@@ -408,6 +408,59 @@ body{
     margin: 0;
 }
 
+/* update User Data Page*/
+
+#mainBodyUDP {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: #ACABAB;
+    border: #000 solid 0.2rem;
+    border-radius: 1.5rem;
+    width: 50rem;
+    height: 50rem;
+    margin-top: 2rem;
+}
+
+#greetingUDP {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    font-size: 2rem;
+}
+
+#formUDP {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+.formInputUDP {
+    width: 60%;
+    height: 5%;
+    border: 0.1rem solid black;
+    border-radius: 0.3rem;
+    background-color: #D9D9D9;
+}
+
+#updateUserButtonUDP {
+    background-color: #4094F5;
+    border: 0.1rem solid black;
+    border-radius: 0.3rem;
+    width: 40%;
+    height: 5%;
+    cursor: pointer;
+}
+
+.labelUDP {
+    font-size: 1.5rem;
+}
 /*Shopping cart*/
 
 #statusBarSCP {
@@ -432,7 +485,7 @@ body{
     overflow: auto;
     margin: 0;
     background-color: #ACABAB;
-    padding-top: 1rem;
+    padding-top: 1.25rem;
 }
 
 .productBoxSCP {

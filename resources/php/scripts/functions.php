@@ -138,3 +138,26 @@
         }
         return $totalCost;
     }
+
+    function validatePhoneNumber($phoneNumber) {
+        $phoneNumber = preg_replace("/[^0-9]/", "", $phoneNumber);
+        return (strlen($phoneNumber) === 9 && is_numeric($phoneNumber));
+    }
+
+    function updateUserData($userID, $username, $surname, $name, $phoneNumber) {
+        $dbConnection = connect_with_database();
+        if ($dbConnection === null) {
+            return false;
+        }
+        $query = "UPDATE customers SET Username=?, Surname=?, Name=?, PhoneNumber=? WHERE CustomerID=?";
+        $preparedStatement = $dbConnection->prepare($query);
+        if ($preparedStatement === false) {
+            return false;
+        }
+        // Assuming PhoneNumber is a string; if it's an integer, adjust accordingly
+        $preparedStatement->bind_param("ssssi", $username, $surname, $name, $phoneNumber, $userID);
+        $success = $preparedStatement->execute();
+        $preparedStatement->close();
+        $dbConnection->close();
+        return $success;
+    }
