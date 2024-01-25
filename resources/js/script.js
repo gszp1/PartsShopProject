@@ -182,6 +182,20 @@ function loadOrdersTable() {
     });
 }
 
+function updateOrderStatus(orderId, newStatus) {
+    $.ajax({
+        url: './../scripts/updateOrderStatus.php',
+        type: 'POST',
+        data: {
+            orderID : orderId,
+            status : newStatus
+        },
+        success: function(response) {
+            loadData();
+        }
+    });
+}
+
 function handleOrderStatusClick() {
     // Handle click events on OrderStatus cells
     $('#OrdersTableBody').on('click', 'td[data-type="orderStatus"]', function() {
