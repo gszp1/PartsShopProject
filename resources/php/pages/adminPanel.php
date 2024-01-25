@@ -38,15 +38,15 @@
             <!-- <hr style="background-color: black; height: 2px; width: 100%; border: none;"> -->
             <form method="post", id="createProductForm">
                 <table id="createProductTable">
-                    <tr><td>CategoryID</td><td><input type='text' name='AddCategoryID' value='0'></td></tr>
-                    <tr><td>SupplierID</td><td><input type='text' name='AddSupplierID' value='0'></td></tr>
-                    <tr><td>ManufacturerID</td><td><input type='text' name='AddManufacturerID' value='0'></td></tr>
-                    <tr><td>ProductName</td><td><input type='text' name='AddProductName' value=''></td></tr>
-                    <tr><td>Price</td><td><input type='text' name='AddPrice' value='0'></td></tr>
-                    <tr><td>UnitsInStock</td><td><input type='text' name='AddUnitsInStock' value='0'></td></tr>
-                    <tr><td>OrderedUnits</td><td><input type='text' name='AddOrderedUnits' value='0'></td></tr>
-                    <tr><td>Picture</td><td><input type='text' name='AddPicture' value=''></td></tr>
-                    <tr><td>Discontinued</td><td><input type='text' name='AddDiscontinued' value='0'></td></tr>
+                    <tr><td>CategoryID</td><td><input type='text' name='addCategoryID' value='0'></td></tr>
+                    <tr><td>SupplierID</td><td><input type='text' name='addSupplierID' value='0'></td></tr>
+                    <tr><td>ManufacturerID</td><td><input type='text' name='addManufacturerID' value='0'></td></tr>
+                    <tr><td>ProductName</td><td><input type='text' name='addProductName' value=''></td></tr>
+                    <tr><td>Price</td><td><input type='text' name='addPrice' value='0'></td></tr>
+                    <tr><td>UnitsInStock</td><td><input type='text' name='addUnitsInStock' value='0'></td></tr>
+                    <tr><td>OrderedUnits</td><td><input type='text' name='addOrderedUnits' value='0'></td></tr>
+                    <tr><td>Picture</td><td><input type='text' name='addPicture' value=''></td></tr>
+                    <tr><td>Discontinued</td><td><input type='text' name='addDiscontinued' value='0'></td></tr>
                 </table>
                 <button type="submit">Add product</button>
             </form>
