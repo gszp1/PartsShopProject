@@ -36,20 +36,19 @@
                 <button type="submit">Update Product</button>
             </form>
             <hr style="background-color: black; height: 2px; width: 100%; border: none;">
-            <!-- <form method="post", id="createProductForm">
+            <form method="post", id="createProductForm">
                 <table id="createProductTable">
-                    <tr><td>CategoryID</td><td></td></tr>
-                    <tr><td>SupplierID</td><td></td></tr>
-                    <tr><td>ManufacturerID</td><td></td></tr>
-                    <tr><td>ProductName</td><td></td></tr>
-                    <tr><td>Price</td><td></td></tr>
-                    <tr><td>UnitsInStock</td><td></td></tr>
-                    <tr><td>OrderedUnits</td><td></td></tr>
-                    <tr><td>Picture</td><td></td></tr>
-                    <tr><td>Discontinued</td><td></td></tr>
+                    <tr><td>CategoryID</td><td><input type='text' name='AddCategoryID' value='0'></td></tr>
+                    <tr><td>SupplierID</td><td><input type='text' name='AddSupplierID' value='0'></td></tr>
+                    <tr><td>ManufacturerID</td><td><input type='text' name='AddManufacturerID' value='0'></td></tr>
+                    <tr><td>ProductName</td><td><input type='text' name='AddProductName' value=''></td></tr>
+                    <tr><td>Price</td><td><input type='text' name='AddPrice' value='0'></td></tr>
+                    <tr><td>UnitsInStock</td><td><input type='text' name='AddUnitsInStock' value='0'></td></tr>
+                    <tr><td>OrderedUnits</td><td><input type='text' name='AddOrderedUnits' value='0'></td></tr>
+                    <tr><td>Picture</td><td><input type='text' name='AddPicture' value=''></td></tr>
+                    <tr><td>Discontinued</td><td><input type='text' name='AddDiscontinued' value='0'></td></tr>
                 </table>
-            </form> -->
-
+            </form>
         </div>
         <script>
             $(document).ready(function() {
