@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 23, 2024 at 03:31 AM
+-- Generation Time: Sty 25, 2024 at 08:21 AM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -101,6 +101,13 @@ CREATE TABLE `orderdetails` (
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`OrderID`, `ProductsID`, `Price`, `Quantity`) VALUES
+(1, 1, 1559.00, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -112,6 +119,13 @@ CREATE TABLE `orders` (
   `CustomerID` bigint(20) NOT NULL,
   `Status` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OrderID`, `CustomerID`, `Status`) VALUES
+(1, 29, 2);
 
 -- --------------------------------------------------------
 
@@ -173,19 +187,20 @@ CREATE TABLE `products` (
   `Price` decimal(10,2) NOT NULL,
   `UnitsInStock` int(11) NOT NULL,
   `OrderedUnits` int(11) NOT NULL,
-  `Picture` varchar(150) NOT NULL
+  `Picture` varchar(150) NOT NULL,
+  `Discontinued` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`ProductID`, `CategoryID`, `SupplierID`, `ManufacturerID`, `ProductName`, `Price`, `UnitsInStock`, `OrderedUnits`, `Picture`) VALUES
-(1, 1, 1, 1, 'GeForce RTX 3060 DUAL OC V2', 1559.00, 12, 0, './resources/assets/images/GPU/GeForce RTX 3060 DUAL OC V2.webp'),
-(2, 1, 1, 1, 'GeForce RTX 3070 DUAL OC V2', 2399.00, 2, 0, './resources/assets/images/GPU/GeForce RTX 3070 DUAL OC V2.webp'),
-(3, 1, 1, 1, 'GeForce RTX 4070 Ti ProArt OC', 4459.00, 15, 2, './resources/assets/images/GPU/GeForce RTX 4070 Ti ProArt OC.webp'),
-(4, 1, 1, 1, 'Radeon RX 7800 XT TUF Gaming', 2900.00, 23, 2, './resources/assets/images/GPU/Radeon RX 7800 XT TUF Gaming.webp'),
-(5, 1, 1, 1, 'GeForce RTX 4070 TI ROG STRIX GAMING', 4999.00, 21, 2, './resources/assets/images/GPU/GeForce RTX 4070 TI ROG STRIX GAMING.webp');
+INSERT INTO `products` (`ProductID`, `CategoryID`, `SupplierID`, `ManufacturerID`, `ProductName`, `Price`, `UnitsInStock`, `OrderedUnits`, `Picture`, `Discontinued`) VALUES
+(1, 1, 1, 1, 'GeForce RTX 3060 DUAL OC V2', 1559.00, 12, 0, '/resources/assets/images/GPU/GeForce_RTX_3060_DUAL_OC_V2.webp', 0),
+(2, 1, 1, 1, 'GeForce RTX 3070 DUAL OC V2', 2399.00, 2, 0, '/resources/assets/images/GPU/GeForce_RTX_3070_DUAL_OC_V2.webp', 0),
+(3, 1, 1, 1, 'GeForce RTX 4070 Ti ProArt OC', 4459.00, 15, 2, '/resources/assets/images/GPU/GeForce_RTX_4070_Ti_ProArt_OC.webp', 0),
+(4, 1, 1, 1, 'Radeon RX 7800 XT TUF Gaming', 2900.00, 23, 2, '/resources/assets/images/GPU/Radeon_RX_7800_XT_TUF_Gaming.webp', 0),
+(5, 1, 1, 1, 'GeForce RTX 4070 TI ROG STRIX GAMING', 4999.00, 21, 2, '/resources/assets/images/GPU/GeForce_RTX_4070_TI_ROG_STRIX_GAMING.webp', 0);
 
 -- --------------------------------------------------------
 
@@ -293,7 +308,7 @@ ALTER TABLE `manufacturers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `partcategories`

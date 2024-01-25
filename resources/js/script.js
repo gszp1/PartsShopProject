@@ -171,3 +171,200 @@ function clearCart(userId) {
         }
     });
 }
+
+function loadOrdersTable() {
+    $.ajax({
+        url: './../scripts/getOrdersData.php',
+        type: 'POST',
+        success: function(response) {
+            $('#OrdersTableBody').html(response);
+            $('#OrdersTableBody td[data-type="orderStatus"]:not(.editing)').each(function() {
+                initializeDropdown($(this));
+            });
+        }
+    });
+}
+
+function updateOrderStatus(orderId, newStatus) {
+    $.ajax({
+        url: './../scripts/updateOrderStatus.php',
+        type: 'POST',
+        data: {
+            orderID : orderId,
+            status : newStatus
+        },
+        success: function(response) {
+            loadOrdersTable();
+        }
+    });
+}
+
+function initializeDropdown(cell) {
+    let currentStatus = cell.text();
+    let dropdown = '<select class="statusDropdown">';
+    dropdown += '<option value="0">Not Accepted</option>';
+    dropdown += '<option value="1">Accepted</option>';
+    dropdown += '<option value="2">Archived</option>';
+    dropdown += '</select>';
+
+    // Set the current status as selected in the dropdown
+    dropdown = dropdown.replace('value="' + currentStatus + '"', 'value="' + currentStatus + '" selected');
+
+    // Update the content of the cell
+    cell.html(dropdown).addClass('editing');
+}
+
+function handleOrderStatusClick() {
+    // Handle click events on OrderStatus cells
+    $('#OrdersTableBody').on('change', '.statusDropdown', function() {
+        let orderId = $(this).closest('tr').find('td[data-type="orderId"]').text();
+        let newStatus = $(this).val();
+
+        // Update the database with the new OrderStatus
+        updateOrderStatus(orderId, newStatus);
+
+        // Reload the data after successful update
+        loadOrdersTable();
+    });
+}
+
+function loadProductDropdownOptions() {
+    $.ajax({
+        url: './../scripts/loadProductsNames.php',
+        type: 'POST',
+        success: function(response) {
+            $('#productDropdown').html(response);
+        }
+    });
+}
+
+function loadProductInfo() {
+    var productId = $("#productDropdown").val();
+    $.ajax({
+        url: './../scripts/getProductInfo.php',
+        type: 'POST',
+        data: { productId : productId },
+        success: function(response) {
+            $('#productTable').html(response);
+        }
+    });
+}
+
+function updateProductInformation() {
+    var productId = $("#productDropdown").val();
+    var categoryId = $("input[name='CategoryID']").val();
+    var supplierId = $("input[name='SupplierID']").val();
+    var manufacturerId = $("input[name='ManufacturerID']").val();
+    var pName = $("input[name='ProductName']").val();
+    var price = $("input[name='Price']").val();
+    var unitsInStock = $("input[name='UnitsInStock']").val();
+    var orderedUnits = $("input[name='OrderedUnits']").val();
+    var picture = $("input[name='Picture']").val();
+    var discontinued = $("input[name='Discontinued']").val();
+
+    $.ajax({
+        url: './../scripts/updateProductInfo.php',
+        type: 'POST',
+        data: {
+            productID: productId,
+            categoryID: categoryId,
+            supplierID: supplierId,
+            manufacturerID: manufacturerId,
+            productName: pName,
+            productPrice: price,
+            unitsInStock: unitsInStock,
+            orderedUnits: orderedUnits,
+            picture: picture,
+            discontinued: discontinued
+        },
+        success: function() {
+            loadProductDropdownOptions();
+        }
+    });
+}
+
+function productUpdateButtonInit() {
+    $('#UpdateProductForm').submit(function(event) {
+        event.preventDefault();
+        updateProductInformation();
+    });
+}
+
+function addProduct() {
+    var categoryId = $("input[name='addCategoryID']").val();
+    var supplierId = $("input[name='addSupplierID']").val();
+    var manufacturerId = $("input[name='addManufacturerID']").val();
+    var pName = $("input[name='addProductName']").val();
+    var price = $("input[name='addPrice']").val();
+    var unitsInStock = $("input[name='addUnitsInStock']").val();
+    var orderedUnits = $("input[name='addOrderedUnits']").val();
+    var picture = $("input[name='addPicture']").val();
+    var discontinued = $("input[name='addDiscontinued']").val();
+
+    $.ajax({
+        url: './../scripts/addProduct.php',
+        type: 'POST',
+        data: {
+            categoryID: categoryId,
+            supplierID: supplierId,
+            manufacturerID: manufacturerId,
+            productName: pName,
+            productPrice: price,
+            unitsInStock: unitsInStock,
+            orderedUnits: orderedUnits,
+            picture: picture,
+            discontinued: discontinued
+        },
+        success: function() {
+            loadProductDropdownOptions();
+            addProductFieldsClean()
+        },
+        error: function() {
+            addProductFieldsClean();
+        }
+    });
+}
+
+function addProductButtonInit() {
+    $('#createProductForm').submit(function(event) {
+        event.preventDefault();
+        addProduct();
+    });
+}
+
+function addProductFieldsClean() {
+    $("input[name='addCategoryID']").val('0');
+    $("input[name='addSupplierID']").val('0');
+    $("input[name='addManufacturerID']").val('0');
+    $("input[name='addProductName']").val('');
+    $("input[name='addPrice']").val('0');
+    $("input[name='addUnitsInStock']").val('0');
+    $("input[name='addOrderedUnits']").val('0');
+    $("input[name='addPicture']").val('');
+    $("input[name='addDiscontinued']").val('0');
+}
+
+function uploadImage() {
+    var formData = new FormData($('#uploadImageForm')[0]);
+    $.ajax({
+        url: './../scripts/uploadImage.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            console.log('Image uploaded successfully:', response);
+            $('#uploadImageForm')[0].reset();
+        },
+        error: function(error) {
+            console.error('Error uploading image:', error);
+        }
+    });
+}
+
+function uploadImageFormInit() {
+    $('#uploadImageForm').submit(function(event) {
+        event.preventDefault();
+        uploadImage();
+    });
+}
