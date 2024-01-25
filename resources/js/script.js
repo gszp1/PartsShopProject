@@ -283,3 +283,10 @@ function updateProductInformation() {
         }
     });
 }
+
+function productUpdateButtonInit() {
+    $('#updateProductForm').submit(function(event) {
+        event.preventDefault();
+        updateProduct();
+    });
+}
