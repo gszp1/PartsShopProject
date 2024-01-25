@@ -35,6 +35,7 @@
                 <table id="productTable"></table>
                 <button type="submit">Update Product</button>
             </form>
+            <hr style="background-color: black; height: 2px; width: 100%; border: none;">
         </div>
         <script>
             $(document).ready(function() {
