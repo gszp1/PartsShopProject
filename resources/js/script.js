@@ -285,8 +285,8 @@ function updateProductInformation() {
 }
 
 function productUpdateButtonInit() {
-    $('#updateProductForm').submit(function(event) {
+    $('#UpdateProductForm').submit(function(event) {
         event.preventDefault();
-        updateProduct();
+        updateProductInformation();
     });
 }

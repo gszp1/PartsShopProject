@@ -43,6 +43,7 @@
                 handleOrderStatusClick();
                 loadProductDropdownOptions();
                 loadProductInfo();
+                productUpdateButtonInit();
             });
         </script>
     </body>
