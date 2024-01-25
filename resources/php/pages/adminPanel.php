@@ -28,6 +28,7 @@
                 </thead>
                 <tbody id="OrdersTableBody"></tbody>
             </table>
+            <hr style="background-color: black; height: 2px; width: 100%; border: none;">
         </div>
         <script>
             $(document).ready(function() {
