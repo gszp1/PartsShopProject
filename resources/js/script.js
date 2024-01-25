@@ -343,3 +343,21 @@ function addProductFieldsClean() {
     $("input[name='addPicture']").val('');
     $("input[name='addDiscontinued']").val('0');
 }
+
+function uploadImage() {
+    var formData = new FormData($('#uploadImageForm')[0]);
+    $.ajax({
+        url: 'uploadImage.php',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            console.log('Image uploaded successfully:', response);
+            $('#uploadImageForm')[0].reset();
+        },
+        error: function(error) {
+            console.error('Error uploading image:', error);
+        }
+    });
+}
