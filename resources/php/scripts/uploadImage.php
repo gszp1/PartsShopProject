@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $uploadPath = '';
+    $uploadPath = './../../assets/images';
 
     if (!file_exists($uploadPath)) {
         mkdir($uploadPath, 0777, true);
