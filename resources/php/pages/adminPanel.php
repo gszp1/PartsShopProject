@@ -58,6 +58,7 @@
                 loadProductDropdownOptions();
                 loadProductInfo();
                 productUpdateButtonInit();
+                addProductButtonInit();
             });
         </script>
     </body>
