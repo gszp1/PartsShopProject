@@ -35,5 +35,12 @@
             <div id="orderDetailsUOP">
             </div>
         </div>
+    <?php
+        $uID = $_SESSION['userID'];
+        echo '<script>';
+        echo "var userID = '$uID';";
+        echo 'loadOrderDropdown(userID)';
+        echo '</script>';
+    ?>
     </body>
 </html>
