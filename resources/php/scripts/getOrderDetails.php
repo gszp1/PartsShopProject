@@ -67,9 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Display Total Cost and Order Status
     echo "<p>- Total Cost: $$totalCost</p>";
     if ($status == 1) {
-        echo "<p>- Order Status: Active</p>";
+        echo "<p>- Order Status: Accepted</p>";
     } elseif ($status == 0) {
-        echo "<p>- Order Status: Not Active</p>";
+        echo "<p>- Order Status: Not Accepted</p>";
     } elseif ($status == 2) {
         echo "<p>- Order Status: Archived</p>";
     } else {

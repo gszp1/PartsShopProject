@@ -666,8 +666,6 @@ th {
 }
 
 .labelUOP {
-    margin-left: auto;
-    margin-right: auto;
     font-size: 2rem;
     height:40%;
 }
@@ -685,4 +683,5 @@ th {
     background-color: #ACABAB;
     border: #000 0.2rem solid;
     border-radius: 1rem;
+    font-size: 1.5rem;
 }
