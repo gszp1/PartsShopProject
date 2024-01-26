@@ -57,13 +57,11 @@
         }
     }
 
-    // Function for retrieving data of user with given ID.
     function get_full_user_data($userID) {
         $dbConnection = connect_with_database();
         if ($dbConnection == null) {
             return;
         }
-        // Get email, username, surname, name, phonenumber from database.
         $preparedStatement = $dbConnection->prepare("SELECT Email, Username, Surname, Name, PhoneNumber FROM customers WHERE CustomerID=?");
         if ($preparedStatement === false) {
             return null;
@@ -92,7 +90,7 @@
             if (isset($userData[$field])) {
                 echo htmlspecialchars($userData[$field]);
             } else {
-                echo '&nbsp;'; // Display empty space if the field is not present
+                echo '&nbsp;';
             }
             echo '</td>';
             echo '</tr>';
@@ -106,7 +104,6 @@
         if ($dbConnection == null) {
             return $totalCost;
         }
-        //get all products from user's shopping cart.
         $query = "SELECT p.Picture, p.ProductName, sc.Quantity, sc.Price " .
                  "FROM products AS p " .
                  "INNER JOIN shoppingcart AS sc ON p.ProductID = sc.ProductID " .
@@ -114,13 +111,9 @@
                  "WHERE c.CustomerID='$userID';";
         $result = mysqli_query($dbConnection, $query);
         if ($result) {
-            // Start HTML list
             echo '<ul>';
-            // Loop through the result set
             while ($row = mysqli_fetch_assoc($result)) {
-                // Calculate total price (quantity * price)
                 $totalPrice = $row['Quantity'] * $row['Price'];
-                // Display each entry in an HTML list item
                 echo '<li>';
                 echo '<img src="' . $row['Picture'] . '" alt="' . $row['ProductName'] . '">';
                 echo '<p>Product: ' . $row['ProductName'] . '</p>';
@@ -130,10 +123,8 @@
                 echo '</li>';
                 $totalCost = $totalCost + $totalPrice;
             }
-            // End HTML list
             echo '</ul>';
         } else {
-            // Handle the case where the query was not successful
             echo 'Error executing query: ' . mysqli_error($dbConnection);
         }
         return $totalCost;
@@ -154,7 +145,6 @@
         if ($preparedStatement === false) {
             return false;
         }
-        // Assuming PhoneNumber is a string; if it's an integer, adjust accordingly
         $preparedStatement->bind_param("ssssi", $username, $surname, $name, $phoneNumber, $userID);
         $success = $preparedStatement->execute();
         $preparedStatement->close();

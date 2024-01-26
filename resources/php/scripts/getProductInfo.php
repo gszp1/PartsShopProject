@@ -12,12 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $preparedStatement = $dbConnection->prepare($query);
     $pID = $_POST['productId'];
     $preparedStatement->bind_param("i", $pID);
-    // Execute the prepared statement
     $preparedStatement->execute();
-    // Fetch the results
     $result = $preparedStatement->get_result();
     if ($result->num_rows > 0) {
-        // Fetch the data from the result set
         $row = $result->fetch_assoc();
         $CategoryID = $row['CategoryID'];
         $SupplierID = $row['SupplierID'];

@@ -38,7 +38,6 @@
                 array_push($errors, "Email already used.");
             }
         }
-            // register user
         if (count($errors) == 0) {
             $passwordHash = md5($password);
             $preparedStatement = $dbConnection->prepare("INSERT INTO customers(Email, Username, Password) VALUES (?, ?, ?)");

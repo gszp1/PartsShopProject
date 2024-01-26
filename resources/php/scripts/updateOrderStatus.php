@@ -4,13 +4,11 @@ include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // connect with database.
     $dbConnection = connect_with_database();
     if ($dbConnection === null) {
         exit("Database connection failure.");
     }
 
-    // Prepare statement.
     $query = "UPDATE orders SET Status = ? WHERE OrderID = ?";
     $preparedStatement = $dbConnection->prepare($query);
     if (!$preparedStatement) {

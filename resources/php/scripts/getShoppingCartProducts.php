@@ -22,11 +22,8 @@
             exit("Execution failed: " . $preparedStatement->error);
         }
 
-
-        // Bind the result variables
         $preparedStatement->bind_result($productID, $picture, $productName, $quantity, $price);
 
-        // Fetch the data into an array
         $products = array();
         while ($preparedStatement->fetch()) {
             $products[] = array(
@@ -39,12 +36,9 @@
             );
         }
 
-        // Close the statement
         $preparedStatement->close();
 
-        // Close the database connection
         $dbConnection->close();
 
-        // Encode the array into JSON and echo it
         echo json_encode($products);
     }

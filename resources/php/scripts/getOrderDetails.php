@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $orderID = mysqli_real_escape_string($dbConnection, $_POST['orderID']);
 
-    // Query to retrieve order status
     $statusQuery = "SELECT Status FROM orders WHERE OrderID=?";
     $statusStatement = $dbConnection->prepare($statusQuery);
 
@@ -28,10 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $statusStatement->bind_result($status);
     $statusStatement->fetch();
 
-    // Close the status statement
     $statusStatement->close();
 
-    // Query to retrieve order details
     $detailsQuery = "SELECT o.Price, o.Quantity, p.ProductName " .
                     "FROM orderdetails AS o " .
                     "INNER JOIN products as p " .
@@ -64,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     echo "</ul>";
 
-    // Display Total Cost and Order Status
     echo "<p>- Total Cost: $$totalCost</p>";
     if ($status == 1) {
         echo "<p>- Order Status: Accepted</p>";
@@ -76,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "<p>- Unknown Order Status</p>";
     }
 
-    // Close the details statement and database connection
     $detailsStatement->close();
     $dbConnection->close();
 }

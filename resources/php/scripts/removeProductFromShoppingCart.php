@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $query = "DELETE FROM shoppingcart WHERE ProductID=? AND CustomerID=?";
     $userID = $_POST['userID'];
-    $productID =  $_POST['productID'];  // Removed the $ before 'productID'
+    $productID =  $_POST['productID'];
     $preparedStatement = $dbConnection->prepare($query);
     if ($preparedStatement === false) {
         exit("Failed to prepare statement.");
@@ -22,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $preparedStatement->close();
 
-    // Close the database connection
     $dbConnection->close();
     echo "Success.";
 }

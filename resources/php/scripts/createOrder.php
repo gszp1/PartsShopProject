@@ -7,7 +7,6 @@
             exit("Failed to connect with the database.");
         }
 
-        // Retrieve products from shopping cart
         $query = "SELECT ProductID, Quantity, Price FROM shoppingcart WHERE CustomerID = ?";
         $preparedStatement = $dbConnection->prepare($query);
         if ($preparedStatement === false) {
@@ -23,7 +22,6 @@
             exit("No records to add.");
         }
 
-        // query for adding order.
         $query = "INSERT INTO orders(CustomerID, Status) VALUES (?, 0)";
         $preparedStatement = $dbConnection->prepare($query);
         if ($preparedStatement === false) {
@@ -34,7 +32,6 @@
             exit("Execution failed: " . $preparedStatement->error);
         }
 
-        // Retrieve new order's ID
         $query = "SELECT MAX(OrderID) AS newOrderID FROM orders WHERE CustomerID = ?";
         $preparedStatement = $dbConnection->prepare($query);
         if ($preparedStatement === false) {
@@ -54,7 +51,6 @@
         }
         $orderID = $row['newOrderID'];
 
-        // Insert products from shopping cart to orders
         $query = "INSERT INTO orderdetails (OrderID, ProductsID, Price, Quantity) VALUES (?, ?, ?, ?)";
         $preparedStatement = $dbConnection->prepare($query);
         if ($preparedStatement === false) {
@@ -70,7 +66,6 @@
             }
         }
 
-        // Check if any records were inserted
         if ($preparedStatement->affected_rows <= 0) {
             exit("No records were inserted into orderdetails.");
         }
