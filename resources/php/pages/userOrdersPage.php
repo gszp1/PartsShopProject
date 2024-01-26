@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    if (isset($_SESSION["userID"]) == false) {
+        $_SESSION["previousPage"] = $_SERVER["REQUEST_URI"];
+        header("location: loginPage.php");
+        exit();
+    }
+    include("./../scripts/functions.php");
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
