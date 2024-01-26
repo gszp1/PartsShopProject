@@ -2,7 +2,7 @@
 
     include("functions.php");
 
-    if ($_Server['REQUEST_METHOD'] === 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbConnection = connect_with_database();
         if ($dbConnection === null) {
             echo "Database connection failure.";
