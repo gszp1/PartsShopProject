@@ -17,6 +17,10 @@
             <button onclick="goToPage('shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
         <div class="pageContents">
+            <div id="orderIdSelectionBoxUOP">
+                <label class="labelUOP" for="orderDropdown">Select order</label>
+                <select name="orderDropdown" id="orderDropdown" onchange=""></select>
+            </div>
         </div>
     </body>
 </html>
