@@ -76,7 +76,6 @@ function displayProducts(products) {
             flag = 1;
         }
 
-        // Add a button to remove the product
         var removeButton = $('<button class="RemoveButtonSCP">');
         removeButton.text('Remove');
         removeButton.click(function () {
@@ -94,7 +93,6 @@ function displayProducts(products) {
     var createOrderButton = $('<button id="createOrderButton">');
     createOrderButton.text('Create Order');
     createOrderButton.click(function () {
-        // Call a function to handle order creation
         console.log('Placing order.');
         console.log(userID);
         addOrder(userID);
@@ -103,7 +101,6 @@ function displayProducts(products) {
     var clearCartButton = $('<button id="clearCartButton">');
     clearCartButton.text('Clear Cart');
     clearCartButton.click(function () {
-        // Call a function to handle order creation
         clearCart(userID);
     });
     statusBar.append(totalCostBar);
@@ -111,7 +108,6 @@ function displayProducts(products) {
     statusBar.append(clearCartButton);
 }
 
-// Function to remove a product from the server and update the display
 function removeProduct(productId, userId) {
     $.ajax({
         type: 'POST',
@@ -129,7 +125,6 @@ function removeProduct(productId, userId) {
     });
 }
 
-// Function to add order using products from shopping cart
 function addOrder(userId) {
     $.ajax({
         type: 'POST',
@@ -197,23 +192,17 @@ function initializeDropdown(cell) {
     dropdown += '<option value="2">Archived</option>';
     dropdown += '</select>';
 
-    // Set the current status as selected in the dropdown
     dropdown = dropdown.replace('value="' + currentStatus + '"', 'value="' + currentStatus + '" selected');
 
-    // Update the content of the cell
     cell.html(dropdown).addClass('editing');
 }
 
 function handleOrderStatusClick() {
-    // Handle click events on OrderStatus cells
     $('#OrdersTableBody').on('change', '.statusDropdown', function() {
         let orderId = $(this).closest('tr').find('td[data-type="orderId"]').text();
         let newStatus = $(this).val();
 
-        // Update the database with the new OrderStatus
         updateOrderStatus(orderId, newStatus);
-
-        // Reload the data after successful update
         loadOrdersTable();
     });
 }
