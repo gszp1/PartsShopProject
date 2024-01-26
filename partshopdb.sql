@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sty 25, 2024 at 08:21 AM
+-- Generation Time: Sty 26, 2024 at 04:46 AM
 -- Wersja serwera: 10.4.28-MariaDB
 -- Wersja PHP: 8.2.4
 
@@ -61,7 +61,8 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`CustomerID`, `Email`, `Username`, `Surname`, `Name`, `PhoneNumber`, `Password`) VALUES
-(29, 'test@gmail.com', 'test', NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6');
+(29, 'test@gmail.com', 'test', 'surname', 'name', '111222333', '098f6bcd4621d373cade4e832627b4f6'),
+(32, 'test2@gmail.com', 'test2', NULL, NULL, NULL, 'ad0234829205b9033196ba818f7a872b');
 
 -- --------------------------------------------------------
 
@@ -106,7 +107,13 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`OrderID`, `ProductsID`, `Price`, `Quantity`) VALUES
-(1, 1, 1559.00, 1);
+(1, 1, 1559.00, 1),
+(2, 1, 1559.00, 1),
+(2, 2, 2399.00, 1),
+(2, 3, 4459.00, 1),
+(2, 4, 2900.00, 1),
+(2, 5, 4999.00, 1),
+(2, 6, 250.00, 1);
 
 -- --------------------------------------------------------
 
@@ -125,7 +132,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`OrderID`, `CustomerID`, `Status`) VALUES
-(1, 29, 2);
+(1, 29, 2),
+(2, 29, 1);
 
 -- --------------------------------------------------------
 
@@ -196,11 +204,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ProductID`, `CategoryID`, `SupplierID`, `ManufacturerID`, `ProductName`, `Price`, `UnitsInStock`, `OrderedUnits`, `Picture`, `Discontinued`) VALUES
-(1, 1, 1, 1, 'GeForce RTX 3060 DUAL OC V2', 1559.00, 12, 0, '/resources/assets/images/GPU/GeForce_RTX_3060_DUAL_OC_V2.webp', 0),
-(2, 1, 1, 1, 'GeForce RTX 3070 DUAL OC V2', 2399.00, 2, 0, '/resources/assets/images/GPU/GeForce_RTX_3070_DUAL_OC_V2.webp', 0),
-(3, 1, 1, 1, 'GeForce RTX 4070 Ti ProArt OC', 4459.00, 15, 2, '/resources/assets/images/GPU/GeForce_RTX_4070_Ti_ProArt_OC.webp', 0),
-(4, 1, 1, 1, 'Radeon RX 7800 XT TUF Gaming', 2900.00, 23, 2, '/resources/assets/images/GPU/Radeon_RX_7800_XT_TUF_Gaming.webp', 0),
-(5, 1, 1, 1, 'GeForce RTX 4070 TI ROG STRIX GAMING', 4999.00, 21, 2, '/resources/assets/images/GPU/GeForce_RTX_4070_TI_ROG_STRIX_GAMING.webp', 0);
+(1, 1, 1, 1, 'GeForce RTX 3060 DUAL OC V2', 1559.00, 12, 0, '/resources/assets/images/GeForce_RTX_3060_DUAL_OC_V2.webp', 0),
+(2, 1, 1, 1, 'GeForce RTX 3070 DUAL OC V2', 2399.00, 2, 0, '/resources/assets/images/GeForce_RTX_3070_DUAL_OC_V2.webp', 0),
+(3, 1, 1, 1, 'GeForce RTX 4070 Ti ProArt OC', 4459.00, 15, 2, '/resources/assets/images/GeForce_RTX_4070_Ti_ProArt_OC.webp', 0),
+(4, 1, 1, 1, 'Radeon RX 7800 XT TUF Gaming', 2900.00, 23, 2, '/resources/assets/images/Radeon_RX_7800_XT_TUF_Gaming.webp', 0),
+(5, 1, 1, 1, 'GeForce RTX 4070 TI ROG STRIX GAMING', 4999.00, 21, 2, '/resources/assets/images/GeForce_RTX_4070_TI_ROG_STRIX_GAMING.webp', 0),
+(6, 1, 1, 1, 'Intel Arc A750 8GB GDDR6', 250.00, 2, 0, '/resources/assets/images/Intel_Arc_A750_8GB_GDDR6.webp', 0);
 
 -- --------------------------------------------------------
 
@@ -296,7 +305,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `CustomerID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `CustomerID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `manufacturers`
@@ -308,7 +317,7 @@ ALTER TABLE `manufacturers`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `OrderID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `partcategories`
@@ -326,7 +335,7 @@ ALTER TABLE `partsuppliers`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ProductID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ProductID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
