@@ -384,3 +384,19 @@ function loadOrderDropdown(userId) {
         }
     });
 }
+
+function loadOrderDetails(orderId) {
+    $.ajax({
+        url: './../scripts/getOrderDetails.php',
+        type: 'POST',
+        data: {
+            orderID: orderId
+        },
+        success: function(response) {
+            $('#orderDetailsUOP').html(response);
+        },
+        error: function(error) {
+            console.error('Error fetching order details:', error);
+        }
+    });
+}
