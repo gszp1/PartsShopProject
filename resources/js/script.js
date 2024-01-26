@@ -368,3 +368,19 @@ function uploadImageFormInit() {
         uploadImage();
     });
 }
+
+function loadOrderDropdown(userId) {
+    $.ajax({
+        url: './../scripts/getUserOrders.php',
+        type: 'POST',
+        data: {
+            userID: userId
+        },
+        success: function(response) {
+            $('#orderDropdown').html(response);
+        },
+        error: function(error) {
+            console.error('Error fetching order IDs:', error);
+        }
+    });
+}
