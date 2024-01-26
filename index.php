@@ -16,12 +16,7 @@
     <body>
         <nav class="navbarNew">
             <a id="shopLogoNavbarI" href="index.php">Part Shop</a>
-            <div id="searchbarNavbarWrapperI">
-                <form id="searchBarI">
-                    <input id="searchBarInputI" type="text" name=productName><br>
-                </form>
-                <button id="searchButtonI">Search</button>
-            </div>
+            <div id="searchbarNavbarWrapperI"></div>
             <button onclick="goToPage('./resources/php/pages/userAccountPage.php')" id="loginButtonI">Your account</button>
             <button onclick="goToPage('./resources/php/pages/shoppingCartPage.php')" id="shoppingCartI">Shopping cart</button>
         </nav>
