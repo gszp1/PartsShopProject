@@ -21,6 +21,9 @@
                 <label class="labelUOP" for="orderDropdown">Select order</label>
                 <select name="orderDropdown" id="orderDropdown" onchange=""></select>
             </div>
+
+            <div id="orderDetailsUOP">
+            </div>
         </div>
     </body>
 </html>

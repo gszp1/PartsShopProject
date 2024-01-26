@@ -666,6 +666,8 @@ th {
 }
 
 .labelUOP {
+    margin-left: auto;
+    margin-right: auto;
     font-size: 2rem;
     height:40%;
 }
@@ -674,4 +676,13 @@ th {
     font-size: 2rem;
     width: 60%;
     height: 50%;
+}
+
+#orderDetailsUOP {
+    width: 70rem;
+    min-height: 6rem;
+    overflow: auto;
+    background-color: #ACABAB;
+    border: #000 0.2rem solid;
+    border-radius: 1rem;
 }
