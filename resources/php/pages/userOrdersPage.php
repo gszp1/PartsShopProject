@@ -29,7 +29,7 @@
         <div class="pageContents">
             <div id="orderIdSelectionBoxUOP">
                 <label class="labelUOP" for="orderDropdown">Select order</label>
-                <select name="orderDropdown" id="orderDropdown" onchange=""></select>
+                <select name="orderDropdown" id="orderDropdown" onchange="loadOrderDetails(this.value)"></select>
             </div>
 
             <div id="orderDetailsUOP">
