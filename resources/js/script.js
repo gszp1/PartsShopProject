@@ -368,3 +368,35 @@ function uploadImageFormInit() {
         uploadImage();
     });
 }
+
+function loadOrderDropdown(userId) {
+    $.ajax({
+        url: './../scripts/getUserOrders.php',
+        type: 'POST',
+        data: {
+            userID: userId
+        },
+        success: function(response) {
+            $('#orderDropdown').html(response);
+        },
+        error: function(error) {
+            console.error('Error fetching order IDs:', error);
+        }
+    });
+}
+
+function loadOrderDetails(orderId) {
+    $.ajax({
+        url: './../scripts/getOrderDetails.php',
+        type: 'POST',
+        data: {
+            orderID: orderId
+        },
+        success: function(response) {
+            $('#orderDetailsUOP').html(response);
+        },
+        error: function(error) {
+            console.error('Error fetching order details:', error);
+        }
+    });
+}
