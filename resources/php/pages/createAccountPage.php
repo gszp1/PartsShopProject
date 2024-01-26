@@ -31,9 +31,7 @@
                     <input class="formInputCAP" type="password" id="password" name="password"><br>
                     <label>Confirm password:</label><br>
                     <input class="formInputCAP" type="password" id="passwordConfirm" name="passwordConfirmation"><br>
-                    <div id="buttonsContainerCAP">
-                        <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
-                    </div>
+                    <button type="submit" id="createAccountButtonCAP" name="registerUser">Create account</button>
                 </form>
             </div>
         </div>
